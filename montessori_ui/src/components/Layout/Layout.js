@@ -21,7 +21,9 @@ import StudentDetails from "../../pages/dashboard/StudentDetails"
 import Reports from "../../pages/dashboard/reports"
 import AgeReports from "../../pages/dashboard/AgeReports"
 import SpecialObservation from "../../pages/dashboard/SpecialObservation"
+import Sound from "../../pages/dashboard/Sound"
 import ReportOfActivities from "../../pages/dashboard/reportofactivities"
+import MovableAlphabets from "../../pages/dashboard/MovableAlphabets"
 import {Box, IconButton, Link} from '@material-ui/core'
 import Icon from '@mdi/react'
 // import Vendor from "../../pages/vendor";
@@ -92,6 +94,8 @@ function Layout(props) {
               <Route path="/app/createevents" component={CreateEvents} />
               <Route path="/app/agereports" component={AgeReports} />
               <Route path="/app/specialobservation" component={SpecialObservation} />
+              <Route path="/app/sound" component={Sound} />
+              <Route path="/app/movablealphabets" component={MovableAlphabets} />
               {/* <Route path="/app/reports" component={Reports} /> */}
               {/* <Route path="/app/vendor" component={Vendor} />
               <Route path="/app/vendorregistration/:id" component={VendorRegistration} />

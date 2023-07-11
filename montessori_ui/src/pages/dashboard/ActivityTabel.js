@@ -6,13 +6,14 @@ import {
     TableBody,
     TableCell
 } from "@material-ui/core";
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import ActivityService from "./Locality/Service/activityService";
 import ActivityTabelService from "./Locality/Service/activityTabelService";
 import * as Yup from 'yup';
 import TablePagination from '@material-ui/core/TablePagination';
 import { Grid, Select, TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Widget from "../../components/Widget/Widget";
@@ -41,11 +42,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function Activity() {
-    const tableHeaders = [ 'Area Of Work', 'List Of Activities','Edit', 'Delete'];
+    const tableHeaders = ['Area Of Work', 'List Of Activities', 'Edit', 'Delete'];
     const classes = useStyles();
+    const [filterExercise, setExercise] = useState('');
+    const [filterActivityList, setFilterActivityList] = useState([]);
+    const [filterActivity, setActivity] = useState('');
+    const [filterExerciseList, setExerciseList] = useState([]);
+    const [temActivitylList, setTempActivityList] = useState([]);
     const [tabelList, setTabelList] = useState([]);
+    const [filterSuperActivity, setfilterSuperActivity] = useState('');
     const [classNameList, setClassNameList] = useState([]);
+    const [activitylList, setActivityList] = useState([]);
     const [addClassList, setAddClassList] = useState([]);
+    const [superActivityList, setSuperActivityList] = useState([]);
     const [age, setAge] = React.useState('');
     var [error, setError] = useState(null);
     const [tabelIdList, setTabelIdList] = useState([]);
@@ -55,34 +64,68 @@ export default function Activity() {
     const [addSuperActivityList, setAddSuperActivityList] = useState([]);
     const [tabel, setTabel] = useState({
         // classId: '',
-        superActivityId:'',
+        superActivityId: '',
         activityName: '',
     });
     const validationSchema = Yup.object().shape({
         // classId: Yup.string().required('Class Name is required'),
-        superActivityId:Yup.string().required('super Activity Name is required'),
+        superActivityId: Yup.string().required('super Activity Name is required'),
         activityName: Yup.string().required('Activity Name is required'),
-       
+
     });
-    const handleChangePage=(event, newpage) =>{
+    const handleChangePage = (event, newpage) => {
         setpg(newpage);
     }
-    const handleChangeRowsPerPage=(event)=> {
+    const handleChangeRowsPerPage = (event) => {
         setrpg(parseInt(event.target.value, 10));
         setpg(0);
     }
     useEffect(() => {
-        getTabelList();
+        getActivityTabelList();
         getSuperActivityList();
         // getAddClassList();
         return () => {
             setTabelIdList([]);
+            setSuperActivityList([]);
             setTabelList([]);
             setAddSuperActivityList([]);
             // setAddClassList([]);
             // setClassNameList([]);
         }
     }, []);
+    const filterSuperActivitys = (event)=>{
+
+        setfilterSuperActivity(event.target.value);
+        if(event.target.value){
+        
+            // const filterValue = temActivitylList.filter(act=>act.superActivityId._id === event.target.value);
+            // setActivityList(filterValue);
+            const setValues = temActivitylList.map(result=>{
+                return {name:result.ActivityName,value:result._id};
+            });
+            setExerciseList(setValues);
+           
+        }else{
+            setActivityList(temActivitylList);
+            const setValues = temActivitylList.map(result=>{
+                return {name:result.activityName,value:result._id};
+            });
+            setExerciseList(setValues);
+        }
+    
+        }
+        const filterExcDetails = (event) => {
+        const extId = event?event._id:'';
+            setExercise(extId);
+            if (extId) {
+                const filterValue = temActivitylList.filter(act => act._id === extId);
+                setTabelList(filterValue);
+            } else {
+                setTabelList(temActivitylList);
+            }
+    
+        }
+ 
     const getSuperActivityList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         SuperActivityService.getAllSuperActivity(userDetails.schoolId).then((res) => {
@@ -95,14 +138,21 @@ export default function Activity() {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         ActivityTabelService.getAllActivityTabel(userDetails.schoolId).then((res) => {
             setTabelList(res);
+            setTempActivityList(res);
         }).catch((err) => {
             // setError(err.message);
         });
     }
-    const getTabelList = () => {
+    const getFilterActivityList = (event) => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        ActivityTabelService.getAllActivityTabel(userDetails.schoolId).then((res) => {
+        const reqBody ={
+            schoolId:userDetails.schoolId,
+            superActivityId:event.target.value
+        }
+        setfilterSuperActivity(event.target.value);
+        ActivityTabelService.getAllActivityTabeBySuperActivityId(reqBody).then((res) => {
             setTabelList(res);
+            setTempActivityList(res);
         }).catch((err) => {
             // setError(err.message);
         });
@@ -122,7 +172,7 @@ export default function Activity() {
     const onSubmit = data => {
         console.log(JSON.stringify(data, null, 2));
     };
-  
+
     const getAddClassList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         AddClassService.getAllAddClass(userDetails.schoolId).then((res) => {
@@ -133,7 +183,7 @@ export default function Activity() {
     }
     const getClassNameList = (event) => {
         AddClassService.getAddClassNameById({ className: event.target.value }).then((res) => {
-          
+
             setClassNameList(res);
 
         }).catch((err) => {
@@ -142,8 +192,8 @@ export default function Activity() {
     }
     const editActivityTabel = (tabel) => {
         const obj = JSON.parse(JSON.stringify(tabel));
-        
-          obj.superActivityId = tabel.superActivityId ? tabel.superActivityId._id : '';
+
+        obj.superActivityId = tabel.superActivityId ? tabel.superActivityId._id : '';
 
         //  tabel.superActivityId = tabel.superActivityId ? tabel.superActivityId._id :''; 
         setTabel(obj)
@@ -157,8 +207,6 @@ export default function Activity() {
             });
         }
     };
-  
-
     const formik = useFormik({
         initialValues: tabel,
         enableReinitialize: true,
@@ -185,7 +233,7 @@ export default function Activity() {
                     // props.history.push('/app/vendor');
                 })
                     .catch((err) => {
-                        
+
                         alert(err.response.data.message)
                     })
             }
@@ -200,6 +248,51 @@ export default function Activity() {
                 color="secondary" style={{ backgroundColor: '#30875b' }}> Add Activity
             </Button>} />
             <Grid container spacing={4}>
+                <Grid item xs={4}>
+                    <div >
+                        <FormControl variant="filled" fullWidth="true" >
+                            <InputLabel id="demo-simple-select-standard-label"> Area Of Work</InputLabel>
+                            <Select
+                            
+                                labelId="demo-simple-select-standard-label"
+                                id="superActivityName"
+                                name="superActivityId"
+                                label="superActivity"
+                                value={filterSuperActivity}
+                                onChange={getFilterActivityList}
+                           
+                            >
+                                <MenuItem value="">
+                                    <em>None</em>
+                                </MenuItem>
+                                {addSuperActivityList.map(({ _id, superActivityName }) => (
+                                    <MenuItem key={_id} value={_id}>{superActivityName}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
+                    </div>
+                </Grid>
+                <Grid item xs={4}>
+                    <div >
+                    <Autocomplete
+      id="combo-box-demo"
+      options={tabelList}
+      getOptionLabel={(option) => option.activityName}
+      style={{ width: 300 }}
+      onChange={(event, newValue) => {
+        filterExcDetails(newValue);
+      }}
+      renderInput={(params) => <TextField {...params} label="Activities" variant="filled" />}
+    />
+
+
+
+                  
+                    </div>
+                </Grid>
+            </Grid>
+            <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Widget title="" upperTitle noBodyPadding bodyClass={classes.tableOverflow}>
                         <Table className="mb-0">
@@ -213,7 +306,7 @@ export default function Activity() {
                             <TableBody>
                                 {tabelList.slice(pg * rpg, pg * rpg + rpg).map((tabel) => (
                                     <TableRow key={tabel._id}>
-                                        
+
 
                                         {/* <TableCell className="pl-3 fw-normal" >{activity.classId ? activity.classId.className : ''}</TableCell> */}
                                         {/* <TableCell className="pl-3 fw-normal" >{sub.activityId ? sub.activityId.activityName : ''}</TableCell> */}
@@ -227,14 +320,14 @@ export default function Activity() {
                                         <TableCell>
                                             <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => deleteActivityTabel(tabel)} />
                                         </TableCell>
-        
+
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                         <TablePagination
                             component="div"
-                            rowsPerPageOptions={[5, 10, 25, 50, 75, 100 ]}
+                            rowsPerPageOptions={[5, 10, 25, 50, 75, 500]}
                             count={tabelList.length}
                             page={pg}
                             onPageChange={handleChangePage}
@@ -247,8 +340,8 @@ export default function Activity() {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add Activity</DialogTitle>
                 <form onSubmit={formik.handleSubmit} >
-                    <DialogContent style= {{ width: 308 }}>
-                    <FormControl variant="standard" fullWidth>
+                    <DialogContent style={{ width: 308 }}>
+                        <FormControl variant="standard" fullWidth>
                             <InputLabel id="demo-simple-select-standard-label">Area Of Work</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
@@ -265,7 +358,7 @@ export default function Activity() {
                                     <em>None</em>
                                 </MenuItem>
                                 {addSuperActivityList.map(({ _id, superActivityName }) => (
-                                    
+
                                     <MenuItem key={_id} value={_id}>{superActivityName}
                                         {/* <Checkbox checked={formik.values.categoryId.indexOf(parent) > -1} /> */}
                                     </MenuItem>

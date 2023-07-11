@@ -201,9 +201,9 @@ const week = getWeekStartEnd(date);
     }
     const  excelExport  =(res)  => {
         const result= res.map((response)=>{
- 
+
              return {
-                 "Student Name":response.studentId ? response.studentId.studentName : '', 
+                 "Student Name":response.studentId ? `${ response.studentId.firstName } ${response.studentId.lastName}`: '' , 
                  "Area Of Work": response.superActivityId ? response.superActivityId. superActivityName:'',
                  "List Of Activities": response.activityId ? response.activityId.activityName:'',
                  "Exercise":response.subActivityId ? response.subActivityId.subActivityName:'',
@@ -221,7 +221,7 @@ const week = getWeekStartEnd(date);
             
              ).then((res) => {
             const studentDetails = res.map(res => {
-                return { _id: res._id, studentName: res.studentName, status: true };
+                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true };
             })
             setStudentList(studentDetails);
             
@@ -235,16 +235,13 @@ if(obj){
     
     const getStudentActivityList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-     
         ActivityTabelService.getStudentActivity(userDetails.schoolId,true).then((res) => {
-
             setActivityList(res);
         }).catch((err) => {
             // setError(err.message);
         });
     }
     const getSubActivityList = (event, obj) => {
-        
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         const getsubActList = {schooleId:userDetails.schoolId, activityId:event.target.value};
         SubActivityService.getAllSubActivityByActivityId(getsubActList).then((res) => {
@@ -386,15 +383,13 @@ setActivity(obj);
                             </Select>
                         </FormControl>
                                 </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={3}>
                                     <form className={classes.container} noValidate>
-                                    <TextField InputProps={{ style: { width: 160 } }}
+                                    <TextField InputProps={{ style: { width: 150 } }}
                                             id="dob"
                                             name="dob"
                                             label="Start Date"
                                             type="date"
-                                           min="2016-11-10"
-                                            max="2022-11-10"   
                                             value={startDate}
                                             onChange={e => {getStudentList(e.target.value); setStartDate(e.target.value) }}          
                                             className={classes.textField}
@@ -405,13 +400,11 @@ setActivity(obj);
                                     </form>
                                 </Grid>
                                 <Grid item xs={2} >
-                                <TextField InputProps={{ style: { width: 160 } }}
+                                <TextField InputProps={{ style: { width: 120 } }}
                                             id="dob"
                                             name="dob"
                                             label="End Date"
                                             type="date"
-                                           min="2016-11-10"
-                                            max="2022-11-10" 
                                             value={endDate}
                                             onChange={e => {setEndDate(e.target.value) }}
                                             // defaultValue="2017-05-24"
@@ -429,8 +422,11 @@ setActivity(obj);
                                     
                                      Search</Button>
                                 </Grid>
-                                <Grid item xs={2} >
-                                <ExportExcel  excelData={result} fileName={'Student Activity'} />
+                                <Grid item xs={2}   >
+                                    
+                                    <ExportExcel   excelData={result} fileName={'Student Activity'} />
+
+                                    
                                 </Grid>
                             </Grid>
             <Grid container spacing={2} columns={12}>
@@ -453,8 +449,10 @@ setActivity(obj);
 
                                         {/* <TableCell className="pl-3 fw-normal" >{activitydetails.classId ? activitydetails.classId.className : ''}</TableCell> */}
                                         
-                                        <TableCell className="pl-3 fw-normal" >{activitydetails.studentId.studentName}</TableCell>
-                                        <TableCell className="pl-3 fw-normal" >{activitydetails.superActivityId ? activitydetails.superActivityId.superActivityName : ''}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >
+                                            {activitydetails.studentId ?activitydetails.studentId.firstName:"" }&nbsp; 
+                                        {activitydetails.studentId ?activitydetails.studentId.lastName:"" } 
+                                        </TableCell>                                        <TableCell className="pl-3 fw-normal" >{activitydetails.superActivityId ? activitydetails.superActivityId.superActivityName : ''}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.activityId ? activitydetails.activityId.activityName : ''}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.subActivityId ? activitydetails.subActivityId.subActivityName : ''}</TableCell>     
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.sfd}</TableCell>                                  

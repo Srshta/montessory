@@ -161,7 +161,7 @@ export default function Header(props) {
             })}
             onClick={() => setSearchOpen(!isSearchOpen)}
           >
-            <SearchIcon classes={{ root: classes.headerIcon }} />
+            {/* <SearchIcon classes={{ root: classes.headerIcon }} /> */}
           </div>
 
           

@@ -188,7 +188,22 @@ const handleChangeRowsPerPage=(event)=> {
               helperText={formik.touched.eventName && formik.errors.eventName}
             />
             <form className={classes.container} noValidate>
-              <TextField InputProps={{ style: { width: 258 } }}
+            <TextField InputProps={{ style: { width: 253 } }}
+                                            id="dateTime"
+                                            name="dateTime"
+                                            autoFocus
+                                            label="Select  Date"
+                                            type="datetime-local"
+                                            value={formik.values.dateTime}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.dateTime && Boolean(formik.errors.dateTime)}
+                                            helperText={formik.touched.dateTime && formik.errors.dateTime}
+                                            className={classes.textField}
+                                            InputLabelProps={{
+                                                shrink: true,
+                                            }}
+                                        />
+              {/* <TextField InputProps={{ style: { width: 258 } }}
                 id="dateTime"
                 
                 name='dateTime'
@@ -204,7 +219,7 @@ const handleChangeRowsPerPage=(event)=> {
                 InputLabelProps={{
                   shrink: true,
                 }}
-              />
+              /> */}
             </form>
             {/* <form className={classes.container} noValidate>
               <TextField InputProps={{ style: { width: 258 } }}

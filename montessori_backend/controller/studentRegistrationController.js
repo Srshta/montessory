@@ -8,55 +8,76 @@ const { signInToken, tokenForVerify, sendEmail } = require('../config/auth');
 dayjs.extend(utc);
 const addStudent = async (req, res) => {
   try {
-    const isAdded = await Student.findOne({ mobileNumber: req.body.mobileNumber });
-    const isEmailAdded = await Student.findOne({ email: req.body.email });
-    if (isAdded || isEmailAdded) {
-      return res.status(403).send({
-        message: 'This Mobile or Email already Added!',
-      });
-    } else {
-      req.body.password = bcrypt.hashSync(req.body.password);
-      req.body.roleType = "PARENT";
-      const newStudent = new Student(req.body);
-      await newStudent.save();
-      res.send({ message: 'Student Added Successfully!' });
-    }
-
-  } catch (err) {
-    res.status(500).send({ message: err.message });
-  }
-};
-const loginStudent = async (req, res) => {
-  try {
-    const student = await Student.findOne({ email: req.body.email });
-    if (student && bcrypt.compareSync(req.body.password, student.password)) {
-      const token = signInToken(student);
-      res.send({
-        token,
-        _id: student._id,
-        name: student.orgName,
-        phone: student.mobileNumber,
-        email: student.email,
-        role: student.roleType,
-        schoolId: student.schooleId
-      });
-    } else {
-      res.status(401).send({
-        message: 'Invalid Email or password!',
-      });
-    }
+    const newStudent = new Student(req.body);
+    await newStudent.save();
+    res.status(200).send({
+      message: 'Student Added Successfully!',
+    });
   } catch (err) {
     res.status(500).send({
       message: err.message,
     });
   }
 };
+// const addStudent = async (req, res) => {
+//   try {
+//     const isAdded = await Student.findOne({ mobileNumber: req.body.mobileNumber });
+//     const isEmailAdded = await Student.findOne({ email: req.body.email });
+//     if (isAdded || isEmailAdded) {
+//       return res.status(403).send({
+//         message: 'This Mobile or Email already Added!',
+//       });
+//     } else {
+//       req.body.password = bcrypt.hashSync(req.body.password);
+//       req.body.roleType = "PARENT";
+//       const newStudent = new Student(req.body);
+//       await newStudent.save();
+//       res.send({ message: 'Student Added Successfully!' });
+//     }
+
+//   } catch (err) {
+//     res.status(500).send({ message: err.message });
+//   }
+// };
+// const loginStudent = async (req, res) => {
+//   try {
+//     const student = await Student.findOne({ email: req.body.email });
+//     if (student && bcrypt.compareSync(req.body.password, student.password)) {
+//       const token = signInToken(student);
+//       res.send({
+//         token,
+//         _id: student._id,
+//         name: student.orgName,
+//         phone: student.mobileNumber,
+//         email: student.email,
+//         role: student.roleType,
+//         schoolId: student.schooleId
+//       });
+//     } else {
+//       res.status(401).send({
+//         message: 'Invalid Email or password!',
+//       });
+//     }
+//   } catch (err) {
+//     res.status(500).send({
+//       message: err.message,
+//     });
+//   }
+// };
 const addAllStudent = async (req, res) => {
   try {
-    await Student.insertMany(req.body);
+    // await Student.insertMany(req.body);
+    // res.status(200).send({
+    //   message: 'Student Added successfully!',
+    // });
+    for(let i = 0; i < req.body.length; i++){
+     const data= req.body[i];
+     const newStudent = new Student(data);
+     await newStudent.save();
+    }
     res.status(200).send({
-      message: 'Student Added successfully!',
-    });
+        message: 'Student Added successfully!',
+       });
   } catch (err) {
     res.status(500).send({
       message: err.message,
@@ -112,18 +133,20 @@ const updateStudent = async (req, res) => {
     const student = await Student.findById(req.params.id);
     if (student) {
       student.schooleId = req.body.schooleId;
-      student.studentName = req.body.studentName;
+      student.sounds = req.body.sounds;
+      student.movableAlphabets= req.body.movableAlphabets;
+      student.firstName = req.body.firstName;
       student.dob = req.body.dob;
-      // student.selectClass = req.body.selectClass;
-      student.parentName = req.body.parentName;
+      student.lastName = req.body.lastName;
+      student.motherName = req.body.motherName;
       student.mobileNumber = req.body.mobileNumber;
-      student.email = req.body.email;
+      // student.email = req.body.email;
       student.address = req.body.address;
       student.selectCity = req.body.selectCity;
       student.doa = req.body.doa;
       student.allergies = req.body.allergies;
       student.classTeacherId = req.body.classTeacherId;
-      // student.classId = req.body.classId;
+     student.fatherName = req.body.fatherName;
       student.attendence = req.body.attendence;
       student.marks = req.body.marks;
       student.status = req.body.status;
@@ -165,6 +188,6 @@ module.exports = {
   updateStudent,
   deleteStudent,
   findStudentList,
-  loginStudent,
+  // loginStudent,
   getByIdStudent
 };

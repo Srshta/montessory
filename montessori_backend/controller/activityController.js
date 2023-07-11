@@ -91,7 +91,7 @@ const findActivityList=async(req, res)=>{
     preparePost = {...preparePost,...{"activityId" : ObjectId(req.body.activityId)}};
   }
   if(req.body.startDate1 && req.body.endDate1){
-    preparePost = {...preparePost,...{"createdAt" : {$gte:new Date(req.body.startDate1), $lt:new Date(req.body.endDate1)}}};
+    preparePost = {...preparePost,...{"date" : {$gte:new Date(req.body.startDate1).toISOString(), $lt:new Date(req.body.endDate1).toISOString()}}};
   }
   if(req.body.startDate && req.body.endDate){
     preparePost = {...preparePost,...{"sfd" : {$gte:new Date(req.body.startDate).toISOString(),$lt:new Date(req.body.endDate).toISOString()}}};
@@ -99,6 +99,7 @@ const findActivityList=async(req, res)=>{
   if(req.body.key){
     preparePost = {...preparePost,...{"key" : (req.body.key)}};
   }
+  console.log(preparePost);
   try {
     const activity = await Activity.find(preparePost).populate("schooleId")
     // .populate("classId")
@@ -110,10 +111,6 @@ const findActivityList=async(req, res)=>{
     });
   }
 }
-
-
-
-
 const addAllActivityBySuperActivityId = async (req, res) => {
   try {
     let preparePost ={};

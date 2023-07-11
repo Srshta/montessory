@@ -1,12 +1,14 @@
 const SubActivity = require('../models/SubActivity');
+const SuperActivity = require('../models/SuperActivity');
+const ActivityList = require('../models/ActivityList');
 const bcrypt = require('bcryptjs');
 const dayjs = require('dayjs');
 const utc = require('dayjs/plugin/utc');
 const mongoose = require('mongoose');
 var ObjectId = require('mongodb').ObjectID;
 const { signInToken, tokenForVerify, sendEmail } = require('../config/auth');
-const {replaceStr} = require('../utils/activites')
-
+// const {replaceStr} = require('../utils/activites')
+// const {replaceStr} = require('../activity')
 dayjs.extend(utc);
 const addSubActivity = async (req, res) => {
     try {
@@ -140,27 +142,51 @@ const findSubActivityList=async(req, res)=>{
       }
     });
   };
-  const uploadBulkRecords=(req, res)=>{
+  const uploadBulkRecords=async (req, res)=>{
     try {
-      
-     
+      // const superActivity = await SuperActivity.find({});
+      const activityList = await ActivityList.find({});
+    //  console.log(superActivity);
+     console.log(activityList);
+
+//     for (let i=0; i<replaceStr.length; i++){
+//      const subActivityData = replaceStr[i];
+//       // const superactivityname = subActivityData.superactivityname;
+//       const activityes = subActivityData.activityes;
+//       const subactivitys = subActivityData.subactivitys;
+
+//       const getactivityes = activityList.find(activity=>
+//          {
+         
+//           return  activity.activityName.trim().toLowerCase() ===activityes.trim().toLowerCase();
+//       }
+//       );
+
    
-    for (let i=0; i<replaceStr.length; i++){
-      
-      const subActivityData = replaceStr[i];
-      const splitData = subActivityData.activityList.trim().split(",");
-      for(let l=0;l<splitData.length;l++){
-console.log(splitData[l])
-if(splitData[l] && splitData[l] !== ''){
+//      const jsonData = {
+//       subActivityName:subactivitys,
+//       activityId:getactivityes._id,
+//       schooleId:"63bd1c36e6f3e018ac02b374"
+//      };
+//      console.log(jsonData);
+//   //  const newSubActivity =  new SubActivity(jsonData);
+//   //  await newSubActivity.save();
 
-  const newSubActivity = new SubActivity({subActivityName:splitData[l].trim(),
-  "activityId" : subActivityData.subActivityId,
-  "schooleId" : '63bd1c36e6f3e018ac02b374'});
-   newSubActivity.save();
-}
-      }
+//       //console.log(subActivityData);
 
-  }
+//       //const splitData = subActivityData.activityList.trim().split(",");
+// //       for(let l=0;l<splitData.length;l++){
+// // console.log(splitData[l])
+// // if(splitData[l] && splitData[l] !== ''){
+
+// //   // const newSubActivity = new SubActivity({subActivityName:splitData[l].trim(),
+// //   // "activityId" : subActivityData.subActivityId,
+// //   // "schooleId" : '63bd1c36e6f3e018ac02b374'});
+// //   //  newSubActivity.save();
+// // }
+// //       }
+
+//   }
 } catch (err) {
      console.log(err)
 }

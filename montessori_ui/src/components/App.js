@@ -20,13 +20,13 @@ export default function App() {
   return (
     <HashRouter>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/app" />} />
+        <Route exact path="/" render={() => <Redirect to="/app/" />} />
         {/* <Route
           exact
           path="/app"
           render={() => <Redirect to="/app/dashboard" />}
         /> */}
-        <PrivateRoute path="/app" component={Layout} />
+        <PrivateRoute path="/app/" component={Layout} />
         {/* <PublicRoute path="/login" component={Login} /> */}
         <PublicRoute path="/montessori" component={LoginLayout} />
         <Route component={Error} />

@@ -114,7 +114,7 @@ export default function Teacher() {
         ).then((res) => {
             const studentDetails = res.map(res => {
 
-                return { _id: res._id, studentName: res.studentName, status: true };
+                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true };
             })
             setStudentList(studentDetails);
 
@@ -232,7 +232,11 @@ export default function Teacher() {
 
                                 {specialObservationList.slice(pg * rpg, pg * rpg + rpg).map((observation) => (
                                     <TableRow key={observation._id}>
-                                        <TableCell className="pl-3 fw-normal" >{observation.studentId.studentName}</TableCell>
+                                          <TableCell className="pl-3 fw-normal" >
+                                            {observation.studentId ?observation.studentId.firstName:"" }&nbsp; 
+                                        {observation.studentId ?observation.studentId.lastName:"" } 
+                                        </TableCell>
+                                        {/* <TableCell className="pl-3 fw-normal" >{observation.studentId ?observation.studentId.studentName:""}</TableCell> */}
                                         <TableCell className="pl-3 fw-normal" >{observation.date}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{observation.specialObservation}</TableCell>
                                         <TableCell>

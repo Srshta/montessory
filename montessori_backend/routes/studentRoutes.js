@@ -2,14 +2,15 @@ const express = require('express');
 const { isAuth, isAdmin } = require('../config/auth');
 const router = express.Router();
 const {
-    addStudent,addAllStudent,getAllStudent,getStudentById,updateStudent,deleteStudent,findStudentList,loginStudent
+    addStudent,addAllStudent,getAllStudent,getStudentById,updateStudent,deleteStudent,findStudentList,
+    // loginStudent
 } = require('../controller/studentRegistrationController');
 
 //add a coupon
 router.post('/add', addStudent);
 
 //add multiple coupon
-router.post('/all',isAuth, addAllStudent);
+router.post('/all', addAllStudent);
 
 router.post('/find',isAuth, findStudentList);
 //get all coupon
@@ -30,5 +31,5 @@ router.put('/:id',isAuth, updateStudent);
 //delete a coupon
 router.delete('/:id',isAuth, deleteStudent);
 
-router.post('/login', loginStudent);
+// router.post('/login', loginStudent);
 module.exports = router;

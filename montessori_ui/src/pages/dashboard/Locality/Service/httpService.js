@@ -2,8 +2,8 @@ import axios from 'axios';
 
 console.log(process.env.NEXT_PUBLIC_API_BASE_URL)
 // https://montessori.srshta.com/api
-const baseURL = 'http://localhost:5057/api';
-//const baseURL = `http://localhost:3002/api`;
+ const baseURL = 'https://montessori.srshta.com/api';
+ //const baseURL = `http://localhost:5057/api`;
 // const baseURL = 'http://localhost:5057/api';
 const instance = axios.create({
   baseURL:baseURL,

@@ -1,0 +1,156 @@
+[{
+  "_id": {
+    "$oid": "646f054ec864061cdcc0bb65"
+  },
+  "date": "2023-05-15",
+  "studentId": {
+    "$oid": "646f0524c864061cdcc0bb45"
+  },
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "activityId": {
+    "$oid": "64018b4d9efe8c097857222c"
+  },
+  "subActivityId": {
+    "$oid": "64056692e9307f3178c0c1e8"
+  },
+  "remarks": "no",
+  "key": "A",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "authorizedPerson": "ushodaya@gmail.com",
+  "isFuturePlanning": false,
+  "createdAt": {
+    "$date": "2023-05-25T06:50:54.747Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T06:50:54.747Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646f0566c864061cdcc0bb7e"
+  },
+  "sfd": "2023-05-03",
+  "studentId": {
+    "$oid": "646f0524c864061cdcc0bb45"
+  },
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "activityId": {
+    "$oid": "64006f14d27e8d1bf8296156"
+  },
+  "subActivityId": {
+    "$oid": "64056691e9307f3178c0c169"
+  },
+  "remarks": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "authorizedPerson": "ushodaya@gmail.com",
+  "isFuturePlanning": true,
+  "key": "Future Plane",
+  "createdAt": {
+    "$date": "2023-05-25T06:51:18.997Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T06:51:18.997Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646f057cc864061cdcc0bb89"
+  },
+  "sfd": "2023-05-15",
+  "studentId": {
+    "$oid": "646f0524c864061cdcc0bb45"
+  },
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "activityId": {
+    "$oid": "64006f14d27e8d1bf8296156"
+  },
+  "subActivityId": {
+    "$oid": "64056691e9307f3178c0c169"
+  },
+  "remarks": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "authorizedPerson": "ushodaya@gmail.com",
+  "isFuturePlanning": true,
+  "key": "Future Plane",
+  "createdAt": {
+    "$date": "2023-05-25T06:51:40.351Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T06:51:40.351Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646f05c6c864061cdcc0bbe7"
+  },
+  "sfd": "2023-05-10",
+  "studentId": {
+    "$oid": "646f0524c864061cdcc0bb45"
+  },
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "activityId": {
+    "$oid": "64006efad27e8d1bf8296152"
+  },
+  "subActivityId": {
+    "$oid": "64056691e9307f3178c0c151"
+  },
+  "remarks": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "authorizedPerson": "ushodaya@gmail.com",
+  "isFuturePlanning": true,
+  "key": "Future Plane",
+  "createdAt": {
+    "$date": "2023-05-25T06:52:54.072Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T06:52:54.072Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646f05ebc864061cdcc0bbf2"
+  },
+  "sfd": "2023-05-10",
+  "studentId": {
+    "$oid": "646f0524c864061cdcc0bb45"
+  },
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "activityId": {
+    "$oid": "64006df7d27e8d1bf829613a"
+  },
+  "subActivityId": {
+    "$oid": "64056691e9307f3178c0c10d"
+  },
+  "remarks": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "authorizedPerson": "ushodaya@gmail.com",
+  "isFuturePlanning": true,
+  "key": "Future Plane",
+  "createdAt": {
+    "$date": "2023-05-25T06:53:31.530Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T06:53:31.530Z"
+  },
+  "__v": 0
+}]

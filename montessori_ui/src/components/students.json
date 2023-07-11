@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "646897fd03c0d13be427e6f2"
+  },
+  "firstName": "arun",
+  "lastName": "reddy",
+  "dob": "2023-05-04",
+  "motherName": "sarala",
+  "fatherName": "ramu",
+  "mobileNumber": "9595160540",
+  "address": "hyderabad",
+  "selectCity": "Delhi",
+  "doa": "2023-05-18",
+  "allergies": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-05-20T09:50:53.408Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-20T09:54:52.534Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646898d4a590094580cbdc84"
+  },
+  "firstName": "hanshu",
+  "lastName": "lucky",
+  "dob": "2023-05-10",
+  "motherName": "sarala",
+  "fatherName": "ramu",
+  "mobileNumber": "9986481421",
+  "address": "hyderabad",
+  "selectCity": "Hyderbad",
+  "doa": "2023-05-26",
+  "allergies": "no",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-05-20T09:54:28.852Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-20T09:54:28.852Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646f1f638a4e623c781b1332"
+  },
+  "firstName": "hanshu",
+  "lastName": "mulugu",
+  "dob": "2023-05-08",
+  "motherName": "sarala",
+  "fatherName": "ramu",
+  "mobileNumber": "9595160546",
+  "address": "hyderabad",
+  "selectCity": "Hyderbad",
+  "doa": "2023-05-08",
+  "allergies": "no",
+  "schooleId": {
+    "$oid": "646f1550ec3a513e685cda76"
+  },
+  "createdAt": {
+    "$date": "2023-05-25T08:42:11.155Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T08:42:11.155Z"
+  },
+  "__v": 0
+}]

@@ -4,6 +4,7 @@ const ActivityTabelService = {
     
     return requests.get(`/activitytabel/list/${id}`);
   },
+
   getStudentActivity(id,status) {
     return requests.get(`/activity/list/${id}/${status}`);
   },

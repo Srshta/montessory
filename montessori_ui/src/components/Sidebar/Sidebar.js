@@ -18,7 +18,8 @@ import {
   Create as Create,
   SupervisedUserCircle,
   HistorySharp,
-  OpenInNew
+  OpenInNew,
+  Spa
 } from "@material-ui/icons";
 import { useTheme } from "@material-ui/styles";
 import { withRouter } from "react-router-dom";
@@ -101,14 +102,25 @@ let structure = [
   },
   { label: "Special Observation", link: "/app/specialobservation",
   icon:<OpenInNew />},
+  {
+    id: 11,
+    label: "Sounds",
+    icon: <Spa />,
+    children: [
+       { label: "Sounds", link: "/app/sound" },
+      { label: "Movable Alphabets", link: "/app/movablealphabets" },
+     
+    ],
+  },
+  
   //   {
-  //   id: 9,
-  //   label: "Reports",
-  //   link: "/app/reports",
+  //   id: 10,
+  //   label: "Sounds",
+  //   link: "/app/sound",
   //   icon: <TableIcon />,
   // },
   {
-    id: 10,
+    id: 11,
     label: "Reports",
     icon: <UIElementsIcon />,
     children: [
@@ -217,10 +229,11 @@ const student=[
 ];
 
 
-const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-if(userDetails.role === 'PARENT'){
-  structure = student;
-}else if(userDetails.role === 'TEACHER'){
+const userDetails = localStorage.getItem("userDetail") ? JSON.parse(localStorage.getItem("userDetail")) :{};
+// if(userDetails.role === 'PARENT'){
+//   structure = student;
+// }else 
+if(userDetails && userDetails.role === 'TEACHER'){
   structure = teacher;
 }
 function Sidebar({ location }) {

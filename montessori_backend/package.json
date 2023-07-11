@@ -32,7 +32,8 @@
     "nodemailer": "^6.7.2",
     "socket.io": "^4.4.0",
     "stripe": "^9.14.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

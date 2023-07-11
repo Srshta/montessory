@@ -1,0 +1,1114 @@
+[{
+  "_id": {
+    "$oid": "64006df7d27e8d1bf829613a"
+  },
+  "activityName": "Elementary Movements",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:35:51.369Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:35:51.369Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006e15d27e8d1bf829613e"
+  },
+  "activityName": "How to put down objects",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:36:21.192Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:36:21.192Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006e29d27e8d1bf8296142"
+  },
+  "activityName": "How to hold and lift",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:36:41.802Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-08T07:30:02.842Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006e4dd27e8d1bf8296146"
+  },
+  "activityName": "How to carry",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:37:17.135Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:37:17.135Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006ebed27e8d1bf829614a"
+  },
+  "activityName": "How to fold/unfold",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:39:10.094Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:39:10.094Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006eddd27e8d1bf829614e"
+  },
+  "activityName": "How to transfer",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:39:41.775Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:39:41.775Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006efad27e8d1bf8296152"
+  },
+  "activityName": "How to take care of Environment",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:40:10.744Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:40:10.744Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006f14d27e8d1bf8296156"
+  },
+  "activityName": "Social Behaviour",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:40:36.679Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:40:36.679Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006f33d27e8d1bf829615a"
+  },
+  "activityName": "How to take care of onself",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:41:07.913Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:41:33.662Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006f7dd27e8d1bf8296168"
+  },
+  "activityName": "Other Activities",
+  "superActivityId": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:42:21.992Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:42:21.992Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006faed27e8d1bf829616c"
+  },
+  "activityName": "Cylinder blocks",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:43:10.411Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:43:10.411Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006fc6d27e8d1bf8296170"
+  },
+  "activityName": "Pink Tower",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:43:34.104Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:43:34.104Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006fe9d27e8d1bf8296174"
+  },
+  "activityName": "Brown stairs",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:44:09.386Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:44:09.386Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6400811fefe1212b3cc32b54"
+  },
+  "activityName": "Maths",
+  "schooleId": {
+    "$oid": "63b508967caeb21fa0ec05db"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T10:57:35.163Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T10:57:35.163Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640081b59efe8c0978572203"
+  },
+  "activityName": "Red Rods",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T11:00:05.945Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T11:00:05.945Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640081f29efe8c0978572207"
+  },
+  "activityName": "Colour Tabtlets",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T11:01:06.169Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T11:01:06.169Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6400820c9efe8c097857220b"
+  },
+  "activityName": "Tactile material",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T11:01:32.199Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T11:01:32.199Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018ab59efe8c0978572224"
+  },
+  "activityName": "Noise Boxes",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T05:50:45.794Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T05:50:45.794Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018b4d9efe8c097857222c"
+  },
+  "activityName": "Geometrical cabinet",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T05:53:17.445Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T05:53:17.445Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018c4b9efe8c0978572233"
+  },
+  "activityName": "Geometrical solids",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T05:57:31.439Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T05:57:31.439Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018c899efe8c0978572237"
+  },
+  "activityName": "Stereognostic activities",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T05:58:33.570Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T05:58:33.570Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018d099efe8c097857223b"
+  },
+  "activityName": "Decanomial square",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:00:41.333Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:00:41.333Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018db99efe8c097857223f"
+  },
+  "activityName": "Binomial cube",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:03:37.230Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:03:37.230Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018dce9efe8c0978572243"
+  },
+  "activityName": "Trinomial cube",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:03:58.204Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:03:58.204Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018dea9efe8c0978572247"
+  },
+  "activityName": "Constructive triangle",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:04:26.023Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:04:26.023Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018dfd9efe8c097857224b"
+  },
+  "activityName": "Superimposed figures",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:04:45.737Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:04:45.737Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018e149efe8c097857224f"
+  },
+  "activityName": "Coloured cylinders",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:05:08.386Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:05:08.386Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018e3c9efe8c0978572253"
+  },
+  "activityName": "Thermic bottles",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:05:48.417Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:05:48.417Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018e519efe8c0978572257"
+  },
+  "activityName": "Thermic slabs",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:06:09.200Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:06:09.200Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018e669efe8c097857225b"
+  },
+  "activityName": "Baric tablets",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:06:30.637Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:06:30.637Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018e789efe8c097857225f"
+  },
+  "activityName": "Gustatory",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:06:48.205Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:06:48.205Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018ea29efe8c0978572263"
+  },
+  "activityName": "Olfactory",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:07:30.105Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:07:30.105Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018eb69efe8c0978572267"
+  },
+  "activityName": "Drawing Insets",
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:07:50.346Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:07:50.346Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018ee29efe8c097857226b"
+  },
+  "activityName": "Enrichment of vocabulary",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:08:34.589Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:08:34.589Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018ef89efe8c097857226f"
+  },
+  "activityName": "Oral group activities",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:08:56.659Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:08:56.659Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018f0b9efe8c0978572273"
+  },
+  "activityName": "Sound recognition",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:09:15.336Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:09:15.336Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018f2d9efe8c0978572277"
+  },
+  "activityName": "Movable Alphabets",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:09:49.785Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:09:49.785Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018f569efe8c097857227b"
+  },
+  "activityName": "Writing",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:10:30.223Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:10:30.223Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018f719efe8c097857227f"
+  },
+  "activityName": "Reading",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:10:57.037Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:10:57.037Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018f8c9efe8c0978572283"
+  },
+  "activityName": "Grammar",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:11:24.160Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:11:24.160Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018fa39efe8c0978572287"
+  },
+  "activityName": "Word study",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:11:47.919Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:11:47.919Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64018fbc9efe8c097857228b"
+  },
+  "activityName": "Letter Names",
+  "superActivityId": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:12:12.497Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:12:12.497Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190349efe8c097857228f"
+  },
+  "activityName": "Activities for 1 to 10 numbers",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:14:12.828Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:14:12.828Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190689efe8c0978572293"
+  },
+  "activityName": "Decimal System static material",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:15:04.203Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:15:04.203Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190899efe8c0978572297"
+  },
+  "activityName": "Decimal system dynamic part",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:15:37.818Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:15:37.818Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190a29efe8c097857229b"
+  },
+  "activityName": "Traditional names",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:16:02.137Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:16:02.137Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190c29efe8c097857229f"
+  },
+  "activityName": "Coin activity",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:16:34.491Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:16:34.491Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190dd9efe8c09785722a3"
+  },
+  "activityName": "Arithmetic Operations",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:17:01.347Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:17:01.347Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640190ff9efe8c09785722a7"
+  },
+  "activityName": "Fractions",
+  "superActivityId": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:17:35.749Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:17:35.749Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640191179efe8c09785722ab"
+  },
+  "activityName": "Geography",
+  "superActivityId": {
+    "$oid": "64006d3dd27e8d1bf829611b"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:17:59.931Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:17:59.931Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6401912e9efe8c09785722af"
+  },
+  "activityName": "History",
+  "superActivityId": {
+    "$oid": "64006d3dd27e8d1bf829611b"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:18:22.934Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:18:22.934Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "640191719efe8c09785722b3"
+  },
+  "activityName": "Botany",
+  "superActivityId": {
+    "$oid": "64006d3dd27e8d1bf829611b"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:19:29.561Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:19:29.561Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6401918a9efe8c09785722b7"
+  },
+  "activityName": "Zoology",
+  "superActivityId": {
+    "$oid": "64006d3dd27e8d1bf829611b"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-03T06:19:54.376Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-03T06:19:54.376Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a6bdd86cc515c0d49674"
+  },
+  "superActivityId": {
+    "$oid": "6436a64dd86cc515c0d4965d"
+  },
+  "activityName": "Work Mat",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:40:29.626Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:42:25.707Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a6d7d86cc515c0d49679"
+  },
+  "superActivityId": {
+    "$oid": "6436a64dd86cc515c0d4965d"
+  },
+  "activityName": "Sitting mat",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:40:55.770Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:42:32.423Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a6f9d86cc515c0d4967e"
+  },
+  "superActivityId": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "activityName": "Pink Tower",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:41:29.106Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:43:42.336Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a728d86cc515c0d49691"
+  },
+  "superActivityId": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "activityName": "Cylinder Block",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:42:16.894Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:42:16.894Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a7efd86cc515c0d496c9"
+  },
+  "superActivityId": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "activityName": "Brown Stairs",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:45:35.537Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:45:35.537Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a801d86cc515c0d496ce"
+  },
+  "superActivityId": {
+    "$oid": "6436a64dd86cc515c0d4965d"
+  },
+  "activityName": "Chair",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:45:53.766Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:45:53.766Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a81bd86cc515c0d496d3"
+  },
+  "superActivityId": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "activityName": "Red Rods",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:46:19.166Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:46:19.166Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436accad86cc515c0d4984b"
+  },
+  "superActivityId": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "activityName": "Red rods",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T13:06:18.379Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T13:06:18.379Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646314570534f212443a8ba8"
+  },
+  "superActivityId": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "activityName": "annn",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-05-16T05:27:51.156Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-16T05:27:51.156Z"
+  },
+  "__v": 0
+}]

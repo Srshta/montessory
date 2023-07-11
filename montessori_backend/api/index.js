@@ -21,10 +21,9 @@ const  teacherRoutes =require('../routes/teacherRoutes')
 const activityRoutes =require('../routes/activityRoutes')
 const attendenceRoutes =require('../routes/attendenceRoutes')
 const specialObservation=require('../routes/specialObservationRoutes')
+// const soundRoutes=require('../routes/soundRoutes')
 const { isAuth, isAdmin } = require('../config/auth');
 const SpecialObservation = require('../models/SpecialObservation');
-
-
 connectDB();
 const app = express();
 // We are using this for the express-rate-limit middleware
@@ -94,6 +93,7 @@ app.use('/api/activitytabel', activityTabelRoutes )
 app.use('/api/superactivity', superActivityRoutes )
 app.use('/api/subactivity', subActivityRoutes)
 app.use('/api/specialobservation', specialObservation)
+// app.use('/api/sound', soundRoutes)
 app.use((err, req, res, next) => {
   if (res.headersSent) return next(err);
   res.status(400).json({ message: err.message });

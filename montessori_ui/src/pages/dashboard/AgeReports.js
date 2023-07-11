@@ -216,7 +216,11 @@ export default function StudentDetails(props, history) {
                             <TableBody>
                                 {studentList.slice(pg * rpg, pg * rpg + rpg).map((student) => (
                                     <TableRow key={student._id}>
-                                        <TableCell className="pl-3 fw-normal" >{student.studentName}</TableCell>
+                                         <TableCell className="pl-3 fw-normal" >
+                                            {student.firstName }&nbsp; 
+                                        {student.lastName } 
+                                        </TableCell>
+                                        {/* <TableCell className="pl-3 fw-normal" >{student.studentName}</TableCell> */}
                                         {/* <TableCell className="pl-3 fw-normal" >{student.classId ? student.classId.className:""}</TableCell> */}
                                         <TableCell className="pl-3 fw-normal" >{student.dob}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{student.studentAge}</TableCell>          

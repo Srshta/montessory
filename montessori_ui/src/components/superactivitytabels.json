@@ -1,0 +1,151 @@
+[{
+  "_id": {
+    "$oid": "6400106023caf605904d2afd"
+  },
+  "superActivityName": "Exercise of Practical Life",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T02:56:32.166Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:28:12.849Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006c95d27e8d1bf82960fc"
+  },
+  "superActivityName": "Sensorial activities",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:29:57.065Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:30:58.624Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006ce7d27e8d1bf8296113"
+  },
+  "superActivityName": "Language activities",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:31:19.503Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:31:19.503Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006d04d27e8d1bf8296117"
+  },
+  "superActivityName": "Arithmetic activities",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:31:48.866Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:31:48.866Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64006d3dd27e8d1bf829611b"
+  },
+  "superActivityName": "Culture activities",
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "createdAt": {
+    "$date": "2023-03-02T09:32:45.227Z"
+  },
+  "updatedAt": {
+    "$date": "2023-03-02T09:32:45.227Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a64dd86cc515c0d4965d"
+  },
+  "superActivityName": "Exercises of Practical Life",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:38:37.734Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:38:37.734Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a658d86cc515c0d49661"
+  },
+  "superActivityName": "Sensorial Activities",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:38:48.158Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:38:48.158Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a665d86cc515c0d49665"
+  },
+  "superActivityName": "Language Activities",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:39:01.644Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:39:01.644Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a671d86cc515c0d49669"
+  },
+  "superActivityName": "Arithmetic Activities",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:39:13.388Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:39:13.388Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436a67bd86cc515c0d4966d"
+  },
+  "superActivityName": "Cultural Activities",
+  "schooleId": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "createdAt": {
+    "$date": "2023-04-12T12:39:23.726Z"
+  },
+  "updatedAt": {
+    "$date": "2023-04-12T12:39:23.726Z"
+  },
+  "__v": 0
+}]

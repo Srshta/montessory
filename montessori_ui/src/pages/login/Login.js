@@ -9,28 +9,11 @@ import {
   Fade,Select,
 
 } from "@material-ui/core";
-import {
-  Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem,
-  TableRow, Table,
-  TableHead,
-  TableBody,
-  TableCell
-} from "@material-ui/core";
+import {Button, FormControl, InputLabel, MenuItem,} from "@material-ui/core";
 import { loginUser } from "../../context/UserContext";
 import { withRouter } from "react-router-dom";
-import classnames from "classnames";
-
-// styles
 import useStyles from "./styles";
-
-// logo
-import logo from "./logo.svg";
-import google from "../../images/google.svg";
-
-// context
-import { useUserDispatch, lofginUser } from "../../context/UserContext";
-import PageTitle from "../../components/PageTitle/PageTitle";
-
+import { useUserDispatch } from "../../context/UserContext";
 function Login(props) {
   var classes = useStyles();
 
@@ -41,7 +24,6 @@ function Login(props) {
   var [isLoading, setIsLoading] = useState(false);
   var [error, setError] = useState(null);
   var [activeTabId, setActiveTabId] = useState(0);
-  var [nameValue, setNameValue] = useState("");
   var [loginValue, setLoginValue] = useState("");
   var [passwordValue, setPasswordValue] = useState("");
   var [roleValue, setRoleValue] = useState("");
@@ -92,7 +74,7 @@ function Login(props) {
                                     <em>None</em>
                                 </MenuItem>
                                 <MenuItem value={'SCHOOLE'}>Admin </MenuItem>
-                                <MenuItem value={'PARENT'}>Parent </MenuItem>
+                                {/* <MenuItem value={'PARENT'}>Parent </MenuItem> */}
                                 <MenuItem value={'TEACHER'}>Teacher </MenuItem>
                             </Select>
                         </FormControl>
@@ -155,13 +137,13 @@ function Login(props) {
                  
                 )}
                 
-                <Button
+                {/* <Button
                   color="primary"
                   size="large"
                   className={classes.forgetButton}
                 >
                   Forgot Password
-                </Button>
+                </Button> */}
               </div>
             </React.Fragment>
          

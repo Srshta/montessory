@@ -13,7 +13,7 @@ const calenderEventsSchema = new mongoose.Schema(
             required: true,
         },
         dateTime:{
-            type: Date,
+            type: String,
             required: true,
         },
         eventName:{

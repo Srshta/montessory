@@ -1,0 +1,139 @@
+[{
+  "_id": {
+    "$oid": "646460abc39f73082c6ac3f3"
+  },
+  "password": "$2a$10$fgRse9AeDrpxN8HCUeLKjuzncJdu7YDsmCCLmQFMqoc4AZJodoP6.",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe10"
+  },
+  "count": "Akkampally-Booth 1",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-17T05:05:47.412Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-17T05:05:47.412Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646460abc39f73082c6ac3f5"
+  },
+  "password": "$2a$10$fgRse9AeDrpxN8HCUeLKjuzncJdu7YDsmCCLmQFMqoc4AZJodoP6.",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe10"
+  },
+  "count": "Akkampally-Booth 2",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-17T05:05:47.484Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-17T05:05:47.484Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646460abc39f73082c6ac3f7"
+  },
+  "password": "$2a$10$fgRse9AeDrpxN8HCUeLKjuzncJdu7YDsmCCLmQFMqoc4AZJodoP6.",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe10"
+  },
+  "count": "Akkampally-Booth 3",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-17T05:05:47.545Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-17T05:05:47.545Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646460abc39f73082c6ac3f9"
+  },
+  "password": "$2a$10$fgRse9AeDrpxN8HCUeLKjuzncJdu7YDsmCCLmQFMqoc4AZJodoP6.",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe10"
+  },
+  "count": "Akkampally-Booth 4",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-17T05:05:47.598Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-17T05:05:47.598Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646ee94541436045f491cd73"
+  },
+  "password": "$2a$10$irr23H7dbOKxhgaeKlkt5u3JSrS.PY.oDUo7t5A64xBAjT.jRfg6y",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe11"
+  },
+  "count": "Anajipuram-Booth 1",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-25T04:51:17.451Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T04:51:17.451Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "646ee94541436045f491cd75"
+  },
+  "password": "$2a$10$irr23H7dbOKxhgaeKlkt5u3JSrS.PY.oDUo7t5A64xBAjT.jRfg6y",
+  "districtId": {
+    "$oid": "6453adf5e0149f2ae8f94deb"
+  },
+  "constituencyId": {
+    "$oid": "6453ae5ae0149f2ae8f94df3"
+  },
+  "villageId": {
+    "$oid": "6461b1a6d1e28337308bbe11"
+  },
+  "count": "Anajipuram-Booth 2",
+  "status": true,
+  "createdAt": {
+    "$date": "2023-05-25T04:51:17.527Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-25T04:51:17.527Z"
+  },
+  "__v": 0
+}]

@@ -1,57 +1,15 @@
 import React, { useState } from "react";
-import {
-    LinearProgress,
-    OutlinedInput,
-} from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
-
-import { Link } from "@material-ui/core";
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import {
-    Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputLabel, MenuItem,
-    TableRow, Table,
-    TableHead,
-    TableBody,
-    TableCell
-} from "@material-ui/core";
-import {
-    useParams
-  } from "react-router-dom";
-import TeacherService from "./Locality/Service/teacherService";
+import { Button, TableRow, Table,TableHead, TableBody, TableCell} from "@material-ui/core";
 import ActivityService from "./Locality/Service/activityService";
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as Yup from 'yup';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Grid, Card, Box, Select, TextField } from "@material-ui/core";
+import { Grid, } from "@material-ui/core";
 import { useFormik } from 'formik';
-import { useContext, useEffect } from 'react';
-import { useTheme } from "@material-ui/styles";
-import {
-    ResponsiveContainer,
-    ComposedChart,
-    AreaChart,
-    LineChart,
-    Line,
-    Area,
-    PieChart,
-    Pie,
-    Cell,
-    YAxis,
-    XAxis,
-} from "recharts";
-import mock from "./mock";
+import {  useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Widget from "../../components/Widget/Widget";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import { Typography } from "../../components/Wrappers/Wrappers";
-import Dot from "../../components/Sidebar/components/Dot";
-import BigStat from "./components/BigStat/BigStat";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import AddClassService from "./Locality/Service/addClassService";
 import StudentService from "./Locality/Service/studentService";
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -74,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function StudentDetails(props, history) {
-    const { id } = useParams();
-
-    const tableHeaders = ['Student Name','Email' ,'Parent Name','Edit', 'Delete' ];
+    const tableHeaders = ['First Name', 'Last Name',  'Date Of Birth', 'Father Name','mobileNumber','Edit', 'Delete' ];
     const classes = useStyles();
     const [teacherList, setTeacherList] = useState([]);
     const [classNameList, setClassNameList] = useState([]);
@@ -146,6 +102,7 @@ export default function StudentDetails(props, history) {
         debugger
              setUserPermitionsList(userPermitions);
         }
+        
     const getStudentList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         StudentService.getAllStudent(userDetails.schoolId).then((res) => {
@@ -193,9 +150,11 @@ export default function StudentDetails(props, history) {
                         <Table className="mb-0">
                             <TableHead >
                                 <TableRow>                           
-                                <StyledTableCell >Student Name</StyledTableCell>
-                                <StyledTableCell >Email</StyledTableCell>
-                                <StyledTableCell >Parent Name</StyledTableCell>
+                                <StyledTableCell >First Name</StyledTableCell>
+                                <StyledTableCell >Last Name</StyledTableCell>
+                                <StyledTableCell >Date Of Birth</StyledTableCell>
+                                <StyledTableCell >Father Name</StyledTableCell>
+                                <StyledTableCell >Mobile Number</StyledTableCell>
                                         { addUserPermitionsList && addUserPermitionsList.studentDetailsEdit ?
                                         <StyledTableCell >Edit</StyledTableCell>: null }
                                           {addUserPermitionsList && addUserPermitionsList.studentDetailsDelete ?
@@ -205,11 +164,11 @@ export default function StudentDetails(props, history) {
                             <TableBody>
                                 {studentList.slice(pg * rpg, pg * rpg + rpg).map((student) => (
                                     <TableRow key={student._id}>
-                                        <TableCell className="pl-3 fw-normal" >{student.studentName}</TableCell>
-                                        {/* <TableCell className="pl-3 fw-normal" >{student.classId ? student.classId.className:""}</TableCell> */}
-                                        <TableCell className="pl-3 fw-normal" >{student.email}</TableCell>
-                                        <TableCell className="pl-3 fw-normal" >{student.parentName}</TableCell>
-
+                                        <TableCell className="pl-3 fw-normal" >{student.firstName}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >{student.lastName}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >{student.dob}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >{student.fatherName}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >{student.mobileNumber}</TableCell>
                                         { addUserPermitionsList.studentDetailsEdit ? 
                                         <TableCell>
                                             <EditIcon style={{ cursor: 'pointer' }} onClick={() => editStudent(student._id)} >
@@ -225,7 +184,7 @@ export default function StudentDetails(props, history) {
                         </Table>
                         <TablePagination
                             component="div"
-                            rowsPerPageOptions={[5, 10, 25]}
+                            rowsPerPageOptions={[5, 50, 500, 10000]}
                             count={studentList.length}
                             page={pg}
                             onPageChange={handleChangePage}

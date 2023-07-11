@@ -119,7 +119,7 @@ export default function SchooleRegistration(props) {
         props.history.push('/montessori/login');
       })
         .catch((err) => {
-          alert(err.response.data.message)
+          alert(err.response.data.message);
         })
     },
   });
@@ -208,7 +208,7 @@ export default function SchooleRegistration(props) {
                 </Grid>
 
 
-                <Grid item xs={6}>
+                <Grid item xs={6} >
                   <div style={{ width: 370 }}>
                     <FormControl className={classes.formControl}
                       fullWidth="true" >

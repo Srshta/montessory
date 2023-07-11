@@ -1,0 +1,234 @@
+[{
+  "_id": {
+    "$oid": "63b3bf08f3b8ee141c239125"
+  },
+  "selectCountry": "4",
+  "schooleName": "nava jyothi high school",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 507002,
+  "name": "mahima rekha",
+  "email": "mahimarekha@gmail.com",
+  "mobileNumber": "9986481424",
+  "schooleEmail": "navajyothihighschool@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$SkDkqCJmilQ7N0QPWnOKvu5Vpzc9vYcjRQYgIFOD0ptjnOdxiIxGG",
+  "subscription": "no",
+  "createdAt": {
+    "$date": "2023-01-03T05:37:12.368Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-03T05:37:12.368Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b3ef4f4fbb98415cedff21"
+  },
+  "selectCountry": "4",
+  "schooleName": "nava jyothi high school",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 507002,
+  "name": "naveen",
+  "email": "naveen@gmail.com",
+  "mobileNumber": "9595160545",
+  "schooleEmail": "navajyothihighschool@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$6CnI.zD0lMuHUTEhZfQBauE2tW7oE58nRBngteWIdXTuJTFSIMs8e",
+  "subscription": "yes",
+  "createdAt": {
+    "$date": "2023-01-03T09:03:11.744Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-03T09:03:11.744Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b403e399586340081d2315"
+  },
+  "selectCountry": "4",
+  "schooleName": "silver oaks",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 507305,
+  "name": "silver",
+  "email": "silver@gmail.com",
+  "mobileNumber": "9986481421",
+  "schooleEmail": "silver@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$8VINE3bpLGpFv.3HjV5obOePJ3Eu8Fb5mVTced/wzWVPj9jVs2CfC",
+  "subscription": "yes",
+  "createdAt": {
+    "$date": "2023-01-03T10:30:59.866Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-03T10:30:59.866Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b503af7caeb21fa0ec056f"
+  },
+  "selectCountry": "2",
+  "schooleName": "nava jyothi high school",
+  "address": "adsfadfsa",
+  "city": "hyderabad",
+  "pincode": 777777,
+  "name": "Rekha",
+  "email": "adsssssmin@gmail.com",
+  "mobileNumber": "7777777777",
+  "schooleEmail": "navajyothihighschool@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$ekVDteeU31gEEsJ71X94guRNojf8NYv4tvHawlHv0X7pj2tcuXPfq",
+  "subscription": "no",
+  "createdAt": {
+    "$date": "2023-01-04T04:42:23.951Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-04T04:42:23.951Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b5040f7caeb21fa0ec0572"
+  },
+  "selectCountry": "2",
+  "schooleName": "SRDG",
+  "address": "vbhbv",
+  "city": "hyderabad",
+  "pincode": 123456,
+  "name": "hhh",
+  "email": "kalyani@gmail.com",
+  "mobileNumber": "8888888888",
+  "schooleEmail": "kalyani@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$jZKz6cL1ewq2GS8GAxKC2O.G5uwOb0nc72NUiVNQUTQkIDnyrTdnO",
+  "subscription": "yes",
+  "createdAt": {
+    "$date": "2023-01-04T04:43:59.667Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-04T04:43:59.667Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b508967caeb21fa0ec05db"
+  },
+  "selectCountry": "4",
+  "schooleName": "Zee kids",
+  "address": "4-9-197",
+  "city": "Hyderabad",
+  "pincode": 500079,
+  "name": "Amarendra Reddy",
+  "email": "manthriapp@gmail.com",
+  "mobileNumber": "9848055562",
+  "schooleEmail": "manthriapp@gmail.com",
+  "schooleContact": "9848055562",
+  "password": "$2a$10$.R2wpTXElDzvWgl1s6rH9uHNdTrrH78VzcsCpBL9i0JUJFNpCwutO",
+  "subscription": "yes",
+  "createdAt": {
+    "$date": "2023-01-04T05:03:18.095Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-04T05:03:18.095Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63b586507caeb21fa0ec0616"
+  },
+  "selectCountry": "4",
+  "schooleName": "Cremon Montessori Life School",
+  "address": "12-2-822, opposite Pillar Number 23, inside G Pulla Reddy Pharmacy College, Santosh Naga",
+  "city": "Mehdipatnam",
+  "pincode": 500028,
+  "name": "Manognya",
+  "email": "billurim@gmail.com",
+  "mobileNumber": "9100187270",
+  "schooleEmail": "cremonprimary305@gmail.com",
+  "schooleContact": "9849443063",
+  "password": "$2a$10$6uDBj9B7.sPCm5utqz46T.1prb5FxlnrU9c4XfSegKIPF.1sT8tR2",
+  "subscription": "no",
+  "createdAt": {
+    "$date": "2023-01-04T13:59:44.699Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-04T13:59:44.699Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63bba0c2aa35d41ee8ca281d"
+  },
+  "selectCountry": "4",
+  "schooleName": "creek international school",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 500038,
+  "name": "yashodha",
+  "email": "yashodha@gmail.com",
+  "mobileNumber": "9595160540",
+  "schooleEmail": "creekschool@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$IcfwCSAf/./o.PmhHWP1H.6AdhOcI09ga7C35mcrtsDRUAQzyAHjy",
+  "subscription": "yes",
+  "createdAt": {
+    "$date": "2023-01-09T05:06:10.244Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-09T05:06:10.244Z"
+  },
+  "__v": 0,
+  "roleType": "SCHOOLE"
+},{
+  "_id": {
+    "$oid": "63bd05f5afced72cf4445422"
+  },
+  "selectCountry": "4",
+  "schooleName": "geetanjali",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 507305,
+  "name": "geeta",
+  "email": "geeta@gmail.com",
+  "mobileNumber": "9595160587",
+  "schooleEmail": "geetanjalischool@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$UwdfkUk./aFQuvok.cUdr.Lskg92KInUJ5rdEozV3hzyG/qiX1PnS",
+  "subscription": "yes",
+  "roleType": "SCHOOLE",
+  "createdAt": {
+    "$date": "2023-01-10T06:30:13.518Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-10T06:30:13.518Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "selectCountry": "4",
+  "schooleName": "ushodaya",
+  "address": "hyderabad",
+  "city": "hyderabad",
+  "pincode": 507305,
+  "name": "pujeetha",
+  "email": "pujeetha@gmail.com",
+  "mobileNumber": "9999997528",
+  "schooleEmail": "ushodaya@gmail.com",
+  "schooleContact": "7878787878",
+  "password": "$2a$10$CuyTJD9D0f8ENJOh97NNNe4SZC3qTNQGdnAJY2DJ2CrsmFisuPUuu",
+  "subscription": "yes",
+  "roleType": "SCHOOLE",
+  "createdAt": {
+    "$date": "2023-01-10T08:05:11.005Z"
+  },
+  "updatedAt": {
+    "$date": "2023-01-10T08:05:11.005Z"
+  },
+  "__v": 0
+}]

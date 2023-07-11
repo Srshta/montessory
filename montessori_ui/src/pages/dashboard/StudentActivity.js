@@ -6,7 +6,6 @@ import {
     TableBody,
     TableCell
 } from "@material-ui/core";
-//import ExcelExportData from "../../Excelexport"
 import {  Card, Box } from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
 import ActivityService from "./Locality/Service/activityService";
@@ -58,7 +57,6 @@ export default function StudentActivity() {
     const [activityIdList, setActivityIdList] = useState([]);
     const [open, setOpen] = React.useState(false);
     const [isAdd, setIsAdd] = React.useState(false);
-    const [addClassList, setAddClassList] = useState([]);
     const [subActivityIdList, setSubActivityIdList] = useState([]);
     const [addActivityList, setAddActivityList] = useState([]);
     const [addSuperActivityList, setAddSuperActivityList] = useState([]);
@@ -120,70 +118,7 @@ const week = getWeekStartEnd(date);
     const handleChangePage=(event, newpage) =>{
         setpg(newpage);
     }
-    const ExcelExportData =[
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
-    
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
- 
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
-
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
- 
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
-
-        },
-        {
-            "first Name":'arul',
-            "last Name":'arul',
-            "middle Name":'arul',
-            "age":'arul',
-            "city":'arul',
-            "address":'arul',
-        
-        },
-    ]
+   
     const handleChangeRowsPerPage=(event)=> {
         setrpg(parseInt(event.target.value, 10));
         setpg(0);
@@ -209,7 +144,6 @@ const week = getWeekStartEnd(date);
     });
     useEffect(() => {
         //getActivityList();
-        getAddClassList();
         onSubmit();
        // getStudentActivityList();
         getStudentList()
@@ -218,10 +152,8 @@ const week = getWeekStartEnd(date);
             setSubActivityList([]);
             setActivityIdList([]);
             setActivityList([]);
-            setAddClassList([]);
             setStudentList([]);
             setAddSuperActivityList([]);
-            // setClassNameList([]);
         }
     }, []);
     const getSuperActivityList = () => {
@@ -260,8 +192,9 @@ const week = getWeekStartEnd(date);
     const  excelExport  =(res)  => {
        const result= res.map((response)=>{
 
+ 
             return {
-                "Student Name":response.studentId ? response.studentId.studentName : '', 
+                "Student Name":response.studentId ?`${ response.studentId.firstName } ${response.studentId.lastName}`: '' , 
                 "Area Of Work": response.superActivityId ? response.superActivityId. superActivityName:'',
                 "List Of Activities": response.activityId ? response.activityId.activityName:'',
                 "Exercise":response.subActivityId ? response.subActivityId.subActivityName:'',
@@ -277,8 +210,9 @@ const week = getWeekStartEnd(date);
 
     const onSubmit = data => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        const newstartDate1 = startDate1 ? startDate1 : null;
-        const newendDate1 = endDate1 ? endDate1 : null;
+
+        const newstartDate1 = startDate1 ? startDate1 :"";
+        const newendDate1 = endDate1 ? endDate1 :"";
         const keys = {  "schooleId": userDetails.schoolId,  "studentId": studentId, "startDate1":newstartDate1,"endDate1":newendDate1  }
         ActivityService.findActivityList(keys).then((res) => {
             excelExport(res);
@@ -319,12 +253,14 @@ const week = getWeekStartEnd(date);
 
     const getStudentList = (event, obj) => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
+        
         StudentService.getAllStudentById(userDetails.schoolId,
             //  { classId: event }
         ).then((res) => {
             const studentDetails = res.map(res => {
-                return { _id: res._id, studentName: res.studentName, status: true };
-            })
+                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true };
+            });
+            
             setStudentList(studentDetails);
 
             if (obj) {
@@ -344,21 +280,6 @@ const week = getWeekStartEnd(date);
         });
     }
 
-    const getAddClassList = () => {
-        const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        AddClassService.getAllAddClass(userDetails.schoolId).then((res) => {
-            setAddClassList(res);
-        }).catch((err) => {
-            // setError(err.message);
-        });
-    }
-    const getClassNameList = (event) => {
-        AddClassService.getAddClassNameById({ className: event.target.value }).then((res) => {
-            setClassNameList(res);
-        }).catch((err) => {
-            setError(err.message);
-        });
-    }
     const editActivity = (useractivitys, status) => {
         const obj = JSON.parse(JSON.stringify(useractivitys, status));
         //    obj.classId = useractivitys.classId ? useractivitys.classId._id : '';
@@ -448,8 +369,6 @@ const week = getWeekStartEnd(date);
                         >
                              <Grid container spacing={2} columns={12} style={{ margin: 10 }}  >
                              <Grid item xs={2} >
-                            
-                              
                              <FormControl variant="standard" fullWidth>
                             <InputLabel id="studentName">Student Name</InputLabel>
                             <Select
@@ -472,9 +391,9 @@ const week = getWeekStartEnd(date);
                             </Select>
                         </FormControl>
                                 </Grid>
-                            <Grid item xs={2}>
+                            <Grid item xs={3}>
                                     <form className={classes.container} noValidate>
-                                    <TextField InputProps={{ style: { width: 160 } }}
+                                    <TextField InputProps={{ style: { width: 190 } }}
                                             id="dob"
                                             name="dob"
                                             label="Start Date"
@@ -491,7 +410,7 @@ const week = getWeekStartEnd(date);
                                     </form>
                                 </Grid>
                                 <Grid item xs={2} >
-                                <TextField InputProps={{ style: { width: 160 } }}
+                                <TextField InputProps={{ style: { width: 140 } }}
                                             id="dob"
                                             name="dob"
                                             label="End Date"
@@ -516,7 +435,7 @@ const week = getWeekStartEnd(date);
                                      Search</Button>
                                 </Grid>
                                 <Grid item xs={2} >
-                                <ExportExcel   excelData={result} fileName={'Student Activity'} />
+                                <ExportExcel  style={{fontSize:"11px"}} excelData={result} fileName={'Student Activity'} />
                                 </Grid>
                             </Grid>
                             </form>
@@ -539,9 +458,11 @@ const week = getWeekStartEnd(date);
                                 {activityList.slice(pg * rpg, pg * rpg + rpg).map((activitydetails) => (
                                     <TableRow key={activitydetails._id}>
 
-                                        {/* <TableCell className="pl-3 fw-normal" >{activitydetails.classId ? activitydetails.classId.className : ''}</TableCell> */}
 
-                                        <TableCell className="pl-3 fw-normal" >{activitydetails.studentId.studentName}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >
+                                            {activitydetails.studentId ?activitydetails.studentId.firstName:"" }&nbsp; 
+                                        {activitydetails.studentId ?activitydetails.studentId.lastName:"" } 
+                                        </TableCell>
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.superActivityId ? activitydetails.superActivityId.superActivityName : ''}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.activityId ? activitydetails.activityId.activityName : ''}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{activitydetails.subActivityId ? activitydetails.subActivityId.subActivityName : ''}</TableCell>
@@ -730,46 +651,8 @@ const week = getWeekStartEnd(date);
                                 <MenuItem value={"N"}> Presented</MenuItem>
                             </Select>
                         </FormControl>
-
-                        {/* <InputLabel >Copywrite © {year} Name</InputLabel> */}
-                        {/* <small>Copywrite © {year} Name</small> */}
-                        {/* <FormControl variant="standard" fullWidth>
-                            <InputLabel id="demo-simple-select-standard-label">Academic Year</InputLabel>
-                            <Select
-                                labelId="demo-simple-select-standard-label"
-                                id="demo-simple-select-standard"
-                                label="status"
-                                name="academicYear"
-                                value={formik.values.academicYear}
-                                onChange={formik.handleChange}
-                                error={formik.touched.academicYear && Boolean(formik.errors.academicYear)}
-                                helperText={formik.touched.academicYear && formik.errors.academicYear}
-                            >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={year}>{year}</MenuItem>
-                            </Select>
-                        </FormControl> */}
-                        {/* 
-                        <TextField
-                            InputProps={{ style: { width: 258 } }}
-                            autoFocus
-                            margin="dense"
-                            id="studentName "
-                            name="studentName"
-                            label="student Name"
-                            type="text"
-                            variant="standard"
-                            value={formik.values.studentName}
-                            onChange={formik.handleChange}
-                            error={formik.touched.studentName && Boolean(formik.errors.studentName)}
-                            helperText={formik.touched.studentName && formik.errors.studentName}
-                        /> */}
                         <TextField InputProps={{ style: { width: 258 } }}
-
                             margin="dense"
-                            
                             id="remarks"
                             name="remarks"
                             label="Remarks"

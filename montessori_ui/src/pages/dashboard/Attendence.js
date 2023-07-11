@@ -96,7 +96,7 @@ export default function Attendence() {
     });
     useEffect(() => {
         getActivityList();
-
+        getStudentList();
         getAddClassList();
         return () => {
             setActivityIdList([]);
@@ -150,11 +150,11 @@ export default function Attendence() {
             // setError(err.message);
         });
     }
-    const getStudentList = (event) => {
+    const getStudentList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        StudentService.getAllStudentById(userDetails.schoolId, { classId: event }).then((res) => {
+        StudentService.getAllStudentById(userDetails.schoolId, {  }).then((res) => {
             const studentDetails = res.map(res => {
-                return { _id: res._id, studentName: res.studentName, status: true };
+                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true };
             })
             setStudentList(studentDetails);
         }).catch((err) => {
@@ -252,11 +252,11 @@ export default function Attendence() {
                                     <Grid container rowSpacing={1} key={index} style={{ lineHeight: "2" }}>
 
                                         <Grid item xs={6}>
+                                        {/* studentName: `${res.firstName} ${res.lastName}` */}
                                             <span style={{ fontSize: "larger" }}>{item.studentName}</span>
                                         </Grid>
                                         <Grid item xs={2}>
-                                            <input value={item.status} type="checkbox" checked={item.status} style={{ height: "15px", width: "15px" }}
-                                                //  onChange={handleCheck}
+                                            <input value={item.status} type="checkbox" checked={item.status} style={{ height: "15px", width: "15px" }}                                         
                                                 onChange={e => handleCheck(e, item)} />
                                         </Grid>
                                     </Grid>

@@ -6,14 +6,14 @@ import {
     TableBody,
     TableCell
 } from "@material-ui/core";
-import ActivityService from "./Locality/Service/activityService";
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import SubActivityService from "./Locality/Service/subActivityService";
 import ActivityTabelService from "./Locality/Service/activityTabelService";
 import * as Yup from 'yup';
 import TablePagination from '@material-ui/core/TablePagination';
 import { Grid, Select, TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
-import {  useEffect } from 'react';
+import { useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Widget from "../../components/Widget/Widget";
@@ -41,14 +41,13 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function SubActivity() {
-    const tableHeaders = ['List Of Activities','Exercise','Edit', 'Delete'];
+    const tableHeaders = ['List Of Activities', 'Exercise', 'Edit', 'Delete'];
     const classes = useStyles();
     const [filterActivity, setfilterActivity] = useState('');
     const [filterExercise, setExercise] = useState('');
     const [filterExerciseList, setExerciseList] = useState([]);
     const [subActivitylList, setSubActivityList] = useState([]);
     const [temSubActivitylList, setTempSubActivityList] = useState([]);
-    const [classNameList, setClassNameList] = useState([]);
     const [activityList, setActivityList] = useState([]);
     const [age, setAge] = React.useState('');
     var [error, setError] = useState(null);
@@ -61,11 +60,11 @@ export default function SubActivity() {
         // classId: '',
         subActivityName: '',
     });
-    const handleChangePage=(event, newpage) =>{
+    const handleChangePage = (event, newpage) => {
         setpg(newpage);
     }
-  
-    const handleChangeRowsPerPage=(event)=> {
+
+    const handleChangeRowsPerPage = (event) => {
         setrpg(parseInt(event.target.value, 10));
         setpg(0);
     }
@@ -76,7 +75,7 @@ export default function SubActivity() {
     useEffect(() => {
         getSubList();
         getActivityList()
-       
+
         return () => {
             setSubActivityIdList([]);
             setActivityList([]);
@@ -89,32 +88,23 @@ export default function SubActivity() {
     const handleOpen = () => {
         setOpen(true);
     };
-    const onclick = () => {
-        setOpen(true);
-    }
     const handleClose = () => {
         setOpen(false);
-    };
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-    const onSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
     };
     const getSubList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         SubActivityService.getAllSubActivity(userDetails.schoolId).then((res) => {
-            
-            if(res){
+
+            if (res) {
                 setSubActivityList(res);
                 setTempSubActivityList(res);
-                const setValues = res.map(result=>{
-                    return {name:result.subActivityName,value:result._id};
+                const setValues = res.map(result => {
+                    return { name: result.subActivityName, value: result._id };
                 });
                 setExerciseList(setValues);
-               
+
             }
-            
+
         }).catch((err) => {
             // setError(err.message);
         });
@@ -127,13 +117,7 @@ export default function SubActivity() {
             // setError(err.message);
         });
     }
-    const getClassNameList = (event) => {
-        AddClassService.getAddClassNameById({ className: event.target.value }).then((res) => {
-            setClassNameList(res);
-        }).catch((err) => {
-            setError(err.message);
-        });
-    }
+
     const editSubActivity = (sub) => {
         const obj = JSON.parse(JSON.stringify(sub));
         obj.activityId = sub.activityId ? sub.activityId._id : '';
@@ -166,7 +150,7 @@ export default function SubActivity() {
             values.schooleId = userDetails.schoolId;
             if (subActivity._id) {
                 SubActivityService.upadeSubActivity(values).then((res) => {
-                    
+
                     handleClose();
                     getSubActivityList();
                     resetForm()
@@ -189,111 +173,145 @@ export default function SubActivity() {
 
         },
     });
-
-    const filterActivitys = (event)=>{
-
-    setfilterActivity(event.target.value);
-    if(event.target.value){
-        const filterValue = temSubActivitylList.filter(act=>act.activityId._id === event.target.value);
-        setSubActivityList(filterValue);
-        const setValues = filterValue.map(result=>{
-            return {name:result.subActivityName,value:result._id};
-        });
-        setExerciseList(setValues);
-       
-    }else{
-        setSubActivityList(temSubActivitylList);
-        const setValues = temSubActivitylList.map(result=>{
-            return {name:result.subActivityName,value:result._id};
-        });
-        setExerciseList(setValues);
-    }
-
-    }
-
-    const filterExcDetails =  (event)=>{
-
-        setExercise(event.target.value);
-        if(event.target.value){
-            const filterValue = temSubActivitylList.filter(act=>act._id === event.target.value);
+  
+    const filterActivitys = (event) => {
+const iampig = event ? event._id :'';
+        setfilterActivity(iampig);
+        if (iampig) {
+            const filterValue = temSubActivitylList.filter(act => act.activityId._id === iampig);
             setSubActivityList(filterValue);
-        }else{
-            if(filterExercise){
-                setSubActivityList(subActivitylList);
-            }else{
+            const setValues = filterValue.map(result => {
+                return { name: result.subActivityName, value: result._id };
+            });
+            setExerciseList(setValues);
+
+        } else {
+            setSubActivityList(temSubActivitylList);
+            const setValues = temSubActivitylList.map(result => {
+                return { name: result.subActivityName, value: result._id };
+            });
+            setExerciseList(setValues);
+        }
+
+    }
+    // const filterExcDetails = (event) => {
+    //     const extId = event?event._id:'';
+    //         setExercise(extId);
+    //         if (extId) {
+    //             const filterValue = temActivitylList.filter(act => act._id === extId);
+    //             setTabelList(filterValue);
+    //         } else {
+    //             setTabelList(temActivitylList);
+    //         }
+    
+    //     }
+    const filterExcDetails = (event) => {
+        const sub = event ? event.value :'';
+        debugger
+        setExercise(sub);
+        if (sub) {
+            const filterValue = temSubActivitylList.filter(act => act._id === sub);
+            setSubActivityList(filterValue);
+        } else {
+            if (filterActivity) {
+                const filterValue = temSubActivitylList.filter(act =>{
+                    console.log(act.activityId._id);
+                    return  act.activityId._id === filterActivity;
+                });
+
+                setSubActivityList(filterValue);
+            } else {
                 setSubActivityList(temSubActivitylList);
             }
-           
+
         }
-    
-        }
+
+    }
     return (
         <>
             <PageTitle title="Exercise"
-             button={<Button
-                variant="contained" onClick={handleOpen}
-                size="medium"
-                color="secondary" style={{ backgroundColor: '#30875b' }}> Add Sub Activity
-            </Button>} 
+                button={<Button
+                    variant="contained" onClick={handleOpen}
+                    size="medium"
+                    color="secondary" style={{ backgroundColor: '#30875b' }}> Add Sub Activity
+                </Button>}
             />
-             <Grid container spacing={4}>
+            <Grid container spacing={4}>
                 <Grid item xs={4}>
-                <div >
-          <FormControl variant="filled" fullWidth="true" >
-                            <InputLabel id="demo-simple-select-standard-label">Filter Activities</InputLabel>
+                    <div >
+                    <Autocomplete
+      id="combo-box-demo"
+      options={addActivityList}
+      getOptionLabel={(option) => option.activityName}
+      style={{ width: 300 }}
+      onChange={(event, newValue) => {
+        filterActivitys(newValue);
+      }}
+      renderInput={(params) => <TextField {...params} label="Activities" variant="filled" />}
+    />
+                        {/* <FormControl variant="filled" fullWidth="true" >
+                            <InputLabel id="demo-simple-select-standard-label"> Activities</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="activityName"
                                 name="activityId"
-                                label="Filter Activities"
+                                label="Activities"
                                 value={filterActivity}
                                 onChange={filterActivitys}
-                                    //  getClassNameList(e) 
-                                >
+                            //  getClassNameList(e) 
+                            >
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
                                 {addActivityList.map(({ _id, activityName }) => (
                                     <MenuItem key={_id} value={_id}>{activityName}
-                                        {/* <Checkbox checked={formik.values.categoryId.indexOf(parent) > -1} /> */}
                                     </MenuItem>
                                 ))}
                             </Select>
-                        </FormControl>
-          </div>
+                        </FormControl> */}
+                    </div>
                 </Grid>
                 <Grid item xs={4}>
-                <div >
-          <FormControl variant="filled" fullWidth="true" >
-                            <InputLabel id="demo-simple-select-standard-label">Filter Exercise</InputLabel>
+                    <div >
+                    <Autocomplete
+      id="combo-box-demo"
+      options={filterExerciseList}
+      getOptionLabel={(option) => option.name}
+      style={{ width: 300 }}
+      onChange={(event, newValue) => {
+        filterExcDetails(newValue);
+      }}
+      renderInput={(params) => <TextField {...params} label="Exercise" variant="filled" />}
+    />
+                        {/* <FormControl variant="filled" fullWidth="true" >
+                            <InputLabel id="demo-simple-select-standard-label"> Exercise</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
                                 id="activityName"
                                 name="activityId"
-                                label="Filter Activities"
+                                label=" Activities"
                                 value={filterExercise}
                                 onChange={filterExcDetails}
-                                    //  getClassNameList(e) 
-                                >
+                            //  getClassNameList(e) 
+                            >
                                 <MenuItem value="">
                                     <em>None</em>
                                 </MenuItem>
                                 {filterExerciseList.map(({ value, name }) => (
                                     <MenuItem key={value} value={value}>{name}
-                                        {/* <Checkbox checked={formik.values.categoryId.indexOf(parent) > -1} /> */}
                                     </MenuItem>
                                 ))}
                             </Select>
-                        </FormControl>
-          </div>
-</Grid>
+                        </FormControl> */}
+                    </div>
                 </Grid>
-          
-        
+            </Grid>
+
+
             <Grid container spacing={4}>
                 <Grid item xs={12}>
                     <Widget title="" upperTitle noBodyPadding bodyClass={classes.tableOverflow}>
-                  
+
 
                         <Table className="mb-0">
                             <TableHead >
@@ -306,7 +324,7 @@ export default function SubActivity() {
                             <TableBody>
                                 {subActivitylList.slice(pg * rpg, pg * rpg + rpg).map((sub) => (
                                     <TableRow key={sub._id}>
-                                       <TableCell className="pl-3 fw-normal" >{sub.activityId ? sub.activityId.activityName : ''}</TableCell>
+                                        <TableCell className="pl-3 fw-normal" >{sub.activityId ? sub.activityId.activityName : ''}</TableCell>
                                         <TableCell className="pl-3 fw-normal" >{sub.subActivityName}</TableCell>
                                         <TableCell>
                                             <EditIcon style={{ cursor: 'pointer' }} onClick={() => editSubActivity(sub)} >
@@ -315,14 +333,14 @@ export default function SubActivity() {
                                         <TableCell>
                                             <DeleteIcon style={{ cursor: 'pointer' }} onClick={() => deleteSubActivity(sub)} />
                                         </TableCell>
-        
+
                                     </TableRow>
                                 ))}
                             </TableBody>
                         </Table>
                         <TablePagination
                             component="div"
-                            rowsPerPageOptions={[5, 50, 100, 300, 500, 700 ]}
+                            rowsPerPageOptions={[5, 50, 100, 300, 500, 1000]}
                             count={subActivitylList.length}
                             page={pg}
                             onPageChange={handleChangePage}
@@ -335,8 +353,8 @@ export default function SubActivity() {
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add Activity</DialogTitle>
                 <form onSubmit={formik.handleSubmit} >
-                    <DialogContent style= {{ width: 308 }}>
-                    <FormControl variant="standard" fullWidth="true" >
+                    <DialogContent style={{ width: 308 }}>
+                        <FormControl variant="standard" fullWidth="true" >
                             <InputLabel id="demo-simple-select-standard-label">List Of Activities</InputLabel>
                             <Select
                                 labelId="demo-simple-select-standard-label"
@@ -345,7 +363,7 @@ export default function SubActivity() {
                                 label="List Of Activities"
                                 value={formik.values.activityId}
                                 onChange={formik.handleChange}
-                                    //  getClassNameList(e) 
+                                //  getClassNameList(e) 
                                 error={formik.touched.activityId && Boolean(formik.errors.activityId)}
                                 helperText={formik.touched.activityId && formik.errors.activityId}
                             >

@@ -1,0 +1,93 @@
+[{
+  "_id": {
+    "$oid": "6482f99eaecafb0698da201e"
+  },
+  "teacherName": "Manognya Billuri",
+  "email": "billurim@gmail.com",
+  "password": "$2a$10$bgzyZqNRc57fbF45kBZ64uYB6wIuSmz6XbhbErYTIesl17exUsWpm",
+  "qualification": "Montessori adult",
+  "address": "hyderabad",
+  "mobileNumber": {
+    "$numberLong": "9100187270"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "roleType": "TEACHER",
+  "createdAt": {
+    "$date": "2023-06-09T10:06:22.744Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-09T10:06:22.744Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6482f9ffaecafb0698da2024"
+  },
+  "teacherName": "Prasanna Pullyala",
+  "email": "pullyalaprasannareddy@gmail.com",
+  "password": "$2a$10$Q/LHHtU9DEDK43B29Q/2L.BbohJm47fl.cdIeOLnmBbfcsjrC3oN.",
+  "qualification": "Montessori adult",
+  "address": "hyderabad",
+  "mobileNumber": {
+    "$numberLong": "7816053258"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "roleType": "TEACHER",
+  "createdAt": {
+    "$date": "2023-06-09T10:07:59.680Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-09T10:07:59.680Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6482fa64aecafb0698da202a"
+  },
+  "teacherName": "Padmaja Vadla",
+  "email": "padmajachary123@gmail.com",
+  "password": "$2a$10$xi4gdMM7bs8Y.6cD1if8G.uqrew3ZFcII4STa1BK2luqYzqnQn3Yq",
+  "qualification": "Montessori adult",
+  "address": "hyderabad",
+  "mobileNumber": {
+    "$numberLong": "8096763675"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "roleType": "TEACHER",
+  "createdAt": {
+    "$date": "2023-06-09T10:09:40.589Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-09T10:09:40.589Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6482faa8aecafb0698da2030"
+  },
+  "teacherName": "Swapna Sipliganj",
+  "email": "spiliganjswapna@gmail.com",
+  "password": "$2a$10$5d2iPDrNOfiU4tbugctMOe2NkmJLfzmf7mBd/cLF6N1xEEUvB5kDu",
+  "qualification": "Montessori adult",
+  "address": "hyderabad",
+  "mobileNumber": {
+    "$numberLong": "9246067978"
+  },
+  "schooleId": {
+    "$oid": "63bd1c36e6f3e018ac02b374"
+  },
+  "roleType": "TEACHER",
+  "createdAt": {
+    "$date": "2023-06-09T10:10:48.992Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-09T10:10:48.992Z"
+  },
+  "__v": 0
+}]

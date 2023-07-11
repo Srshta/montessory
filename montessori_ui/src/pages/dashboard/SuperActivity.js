@@ -1,15 +1,10 @@
 import React, { useState } from "react";
-import {
-    Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem,
-    TableRow, Table,
-    TableHead,
-    TableBody,
-    TableCell
-} from "@material-ui/core";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle,
+    TableRow, Table,TableHead, TableBody,TableCell} from "@material-ui/core";
 import SuperActivityService from "./Locality/Service/superActivityService";
 import ActivityTabelService from "./Locality/Service/activityTabelService";
 import * as Yup from 'yup';
-import { Grid, Select, TextField } from "@material-ui/core";
+import { Grid, TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
 import {  useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -17,7 +12,6 @@ import EditIcon from '@material-ui/icons/Edit';
 import Widget from "../../components/Widget/Widget";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import AddClassService from "./Locality/Service/addClassService";
 const StyledTableCell = withStyles((theme) => ({
     head: {
         backgroundColor: "#30875b",
@@ -42,45 +36,27 @@ export default function Activity() {
     const tableHeaders = [  'Area Of Work','Edit', 'Delete'];
     const classes = useStyles();
     const [superActivityList, setSuperActivityList] = useState([]);
-    const [classNameList, setClassNameList] = useState([]);
-    const [addClassList, setAddClassList] = useState([]);
     const [age, setAge] = React.useState('');
-    var [error, setError] = useState(null);
     const [tabelIdList, setTabelIdList] = useState([]);
     const [open, setOpen] = React.useState(false);
-    
     const [tabel, setTabel] = useState({
-        // classId: '',
         superActivityName: '',
     });
     const validationSchema = Yup.object().shape({
-        // classId: Yup.string().required('Class Name is required'),
         superActivityName: Yup.string().required('Super Activity Name is required'),
     });
     useEffect(() => {
         getSuperActivityList();
-        // getAddClassList();
         return () => {
             setTabelIdList([]);
             setSuperActivityList([]);
-            // setAddClassList([]);
-            // setClassNameList([]);
         }
     }, []);
     const handleOpen = () => {
         setOpen(true);
     };
-    const onclick = () => {
-        setOpen(true);
-    }
     const handleClose = () => {
         setOpen(false);
-    };
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-    const onSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
     };
     const getSuperActivityList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));

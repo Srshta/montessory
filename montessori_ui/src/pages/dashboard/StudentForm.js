@@ -1,52 +1,12 @@
-import React, { useState, useMemo } from "react";
-import AddClassService from "./Locality/Service/addClassService";
-
-import {
-    LinearProgress,
-    OutlinedInput,
-} from "@material-ui/core";
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import {
-    Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputLabel, MenuItem,
-    TableRow, Table,
-    TableHead,
-    TableBody,
-    TableCell
-} from "@material-ui/core";
+import React, { useState } from "react";
+import {Button,  FormControl, InputLabel, MenuItem,} from "@material-ui/core";
 import StudentService from "./Locality/Service/studentService";
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-
 import { Grid, Card, Box, Select, TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
-
-import { useContext, useEffect } from 'react';
-import { useTheme } from "@material-ui/styles";
-
-import {
-    ResponsiveContainer,
-    ComposedChart,
-    AreaChart,
-    LineChart,
-    Line,
-    Area,
-    PieChart,
-    Pie,
-    Cell,
-    YAxis,
-    XAxis,
-} from "recharts";
-import mock from "./mock";
-import Widget from "../../components/Widget/Widget";
+import {  useEffect } from 'react';
 import PageTitle from "../../components/PageTitle/PageTitle";
-import { Typography } from "../../components/Wrappers/Wrappers";
-import Dot from "../../components/Sidebar/components/Dot";
-import BigStat from "./components/BigStat/BigStat";
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import {  makeStyles } from '@material-ui/core/styles';
 import { useParams } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -60,22 +20,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function StudentForm(props, history) {
-    const { id } = useParams();
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
-    var [error, setError] = useState(null);
-    const [cityList, setCityList] = useState([]);
-    const [open, setOpen] = React.useState(false);
-    const [addClassList, setAddClassList] = useState([]);
     const [studentList, setStudentList] = useState([]);
     const [student, setStudent] = useState({
-        studentName: '',
+        firstName: '',
+        lastName: '',
         dob: '',
-        // classId: '',
-        parentName: '',
+        motherName: '',
+        fatherName: '',
         mobileNumber: '',
-        email: '',
-        password: '',
         address: '',
         lane: '',
         selectCity: '',
@@ -91,73 +44,31 @@ export default function StudentForm(props, history) {
         'Chennai',
     ];
     useEffect(() => {
-        getAddClassList();
-        if (id !== 'add') {
-            getByIdList();
-        }
+        // getAddClassList();
+        // if (id !== 'add') {
+        //     getByIdList();
+        // }
         return () => {
             setStudentList([]);
-            setAddClassList([]);
-
         }
     }, []);
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-    const handleOpen = () => {
-        props.history.push('/app/studentdetails')
-    };
-    const handleClose = () => {
-        setOpen(false);
-    };
+ 
     const validationSchema = Yup.object().shape({
-        studentName: Yup.string().required('student name  is required'),
+        firstName: Yup.string().required('student first name  is required'),
+        lastName: Yup.string(),
         dob: Yup.string().required('select date of birth'),
-        // classId: Yup.string().required('class name  is required'),
-        parentName: Yup.string().required('parent name  is required'),
+        motherName: Yup.string().required('mother name  is required'),
+        fatherName: Yup.string().required('father name  is required'),
         mobileNumber: Yup.string().required()
             .matches(/^[0-9]+$/, "Must be only digits")
             .min(10, 'Must be exactly 10 digits')
             .max(10, 'Must be exactly 10 digits'),
-        email: Yup.string().required('email is required'),
-        password: Yup.string().required('password is required'),
         address: Yup.string().required('Adress is required'),
         lane: Yup.string(),
         selectCity: Yup.string().required('select city'),
         doa: Yup.string().required('select date of admission'),
         allergies: Yup.string(),
     });
-    const getByIdList = () => {
-        StudentService.getByIdStudent(id).then((res) => {
-
-            setStudent(res);
-        }).catch((err) => {
-            setError(err.message);
-        });
-    }
-    const getStudentList = () => {
-        StudentService.getAllStudent().then((res) => {
-            setStudentList(res);
-        }).catch((err) => {
-            // setError(err.message);
-        });
-    }
-    const deleteStudent = (studentdelete) => {
-        if (studentdelete) {
-            StudentService.deleteStudent(studentdelete).then((res) => {
-                getStudentList();
-            }).catch((err) => {
-            });
-        }
-    };
-    const getAddClassList = () => {
-        const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        AddClassService.getAllAddClass(userDetails.schoolId).then((res) => {
-            setAddClassList(res);
-        }).catch((err) => {
-            // setError(err.message);
-        });
-    }
     const formik = useFormik({
         initialValues: student,
         enableReinitialize: true,
@@ -204,15 +115,30 @@ export default function StudentForm(props, history) {
                                     <TextField InputProps={{ style: { width: 370 } }}
                                         margin="dense"
                                         autoFocus
-                                        id="studentName"
-                                        name="studentName"
-                                        label="Name Of The Student "
+                                        id="firstName"
+                                        name="firstName"
+                                        label="First Name "
                                         type="text"
                                         variant="standard"
-                                        value={formik.values.studentName}
+                                        value={formik.values.firstName}
                                         onChange={formik.handleChange}
-                                        error={formik.touched.studentName && Boolean(formik.errors.studentName)}
-                                        helperText={formik.touched.studentName && formik.errors.studentName}
+                                        error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+                                        helperText={formik.touched.firstName && formik.errors.firstName}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextField InputProps={{ style: { width: 370 } }}
+                                        margin="dense"
+                                        autoFocus
+                                        id="lastName"
+                                        name="lastName"
+                                        label="Last Name "
+                                        type="text"
+                                        variant="standard"
+                                        value={formik.values.lastName}
+                                        onChange={formik.handleChange}
+                                        error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+                                        helperText={formik.touched.lastName && formik.errors.lastName}
                                     />
                                 </Grid>
                                 <Grid item xs={6}>
@@ -268,15 +194,30 @@ export default function StudentForm(props, history) {
                                     <TextField
                                         InputProps={{ style: { width: 370 } }}
                                         margin="dense"
-                                        id="parentName"
-                                        name="parentName"
-                                        label="Parent Name"
+                                        id="motherName"
+                                        name="motherName"
+                                        label="Mother Name"
                                         type="text"
                                         variant="standard"
-                                        value={formik.values.parentName}
+                                        value={formik.values.motherName}
                                         onChange={formik.handleChange}
-                                        error={formik.touched.parentName && Boolean(formik.errors.parentName)}
-                                        helperText={formik.touched.parentName && formik.errors.parentName}
+                                        error={formik.touched.motherName && Boolean(formik.errors.motherName)}
+                                        helperText={formik.touched.motherName && formik.errors.motherName}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextField
+                                        InputProps={{ style: { width: 370 } }}
+                                        margin="dense"
+                                        id="fatherName"
+                                        name="fatherName"
+                                        label="Father Name"
+                                        type="text"
+                                        variant="standard"
+                                        value={formik.values.fatherName}
+                                        onChange={formik.handleChange}
+                                        error={formik.touched.fatherName && Boolean(formik.errors.fatherName)}
+                                        helperText={formik.touched.fatherName && formik.errors.fatherName}
                                     />
                                 </Grid>
                                 <Grid item xs={6}>
@@ -295,7 +236,7 @@ export default function StudentForm(props, history) {
                                         helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
                                     />
                                 </Grid>
-                                <Grid item xs={6}>
+                                {/* <Grid item xs={6}>
 
                                     <TextField
                                         InputProps={{ style: { width: 370 } }}
@@ -328,7 +269,7 @@ export default function StudentForm(props, history) {
                                         helperText={formik.touched.password && formik.errors.password}
 
                                     />
-                                </Grid>
+                                </Grid> */}
                                 <Grid item xs={12} style={{ marginTop: '30px' }}>
                                     <span style={{ fontSize: '17px', color: 'rgb(16 182 128)' }} >Address:</span>
                                 </Grid>

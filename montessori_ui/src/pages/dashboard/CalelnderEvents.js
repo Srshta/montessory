@@ -126,7 +126,7 @@ const handleClose = () => {
 
   return (
     <div className='app'>
-    <h1 className='text-center'>Activities</h1>
+    <h1 className='text-center'>Calelnder Events</h1>
     <div className='calendar-container'>
 
 

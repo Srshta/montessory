@@ -25,7 +25,7 @@ const ExportExcel=({ excelData, fileName}) => {
         
             <Button variant="contained"  color="primary" onClick={(e)=>exportToExcel(fileName)} 
             
-             style={{cursor:"pointer", fontSize:14}}>
+             style={{cursor:"pointer", fontSize:13}}>
                 Excel Export</Button>
        
         </>

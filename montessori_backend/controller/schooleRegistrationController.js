@@ -28,10 +28,12 @@ const addSchooleRegistration = async (req, res) => {
   };
   const loginSchooleRegistration = async (req, res) => {
     try {
+      console.log(req.body.email)
   
       const schooleRegistration = await SchooleRegistration.findOne({ schooleEmail: req.body.email });
       console.log(schooleRegistration)
       if (schooleRegistration && bcrypt.compareSync(req.body.password, schooleRegistration.password)) {
+      
         const token = signInToken(schooleRegistration);
         res.send({
           token,

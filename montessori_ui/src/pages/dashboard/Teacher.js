@@ -1,49 +1,15 @@
 import React, { useState } from "react";
-
-import {
-    LinearProgress,
-    OutlinedInput,
-} from "@material-ui/core";
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import {
-    Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, InputLabel, MenuItem,
-    TableRow, Table,
-    TableHead,
-    TableBody,
-    TableCell
-} from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogTitle,  TableRow, Table,
+    TableHead, TableBody, TableCell} from "@material-ui/core";
 import TeacherService from "./Locality/Service/teacherService";
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormLabel from '@material-ui/core/FormLabel';
-import { Grid, Card, Box, Select, TextField } from "@material-ui/core";
+import { Grid,  TextField } from "@material-ui/core";
 import { useFormik } from 'formik';
-import { useContext, useEffect } from 'react';
-import { useTheme } from "@material-ui/styles";
-import {
-    ResponsiveContainer,
-    ComposedChart,
-    AreaChart,
-    LineChart,
-    Line,
-    Area,
-    PieChart,
-    Pie,
-    Cell,
-    YAxis,
-    XAxis,
-} from "recharts";
-import mock from "./mock";
+import {  useEffect } from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Widget from "../../components/Widget/Widget";
 import PageTitle from "../../components/PageTitle/PageTitle";
-import { Typography } from "../../components/Wrappers/Wrappers";
-import Dot from "../../components/Sidebar/components/Dot";
-import BigStat from "./components/BigStat/BigStat";
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import AddClassService from "./Locality/Service/addClassService";
 const StyledTableCell = withStyles((theme) => ({
@@ -70,63 +36,40 @@ export default function Teacher() {
     const tableHeaders = ['Teacher Name', 'Address', 'Edit', 'Delete'];
     const classes = useStyles();
     const [teacherList, setTeacherList] = useState([]);
-    const [classNameList, setClassNameList] = useState([]);
-    const [addClassList, setAddClassList] = useState([]);
     const [age, setAge] = React.useState('');
-    var [error, setError] = useState(null);
     const [teacherIdList, setTeacherIdList] = useState([]);
     const [open, setOpen] = React.useState(false);
     const [teacher, setTeacher] = useState({
-        // classId: '',
         teacherName: '',
         email: '',
         password:'',
-        // subject: '',
         qualification: '',
         address: '',
         mobileNumber: '',
-        // attendence: '',
-        // status: '',
     })
     const validationSchema = Yup.object().shape({
-        // classId: Yup.string().required('Class Name is required'),
         teacherName: Yup.string().required('teache Name is required'),
         email: Yup.string().required('Email is required'),
         password: Yup.string().required('password is required'),
-        // subject: Yup.string().required('Subject is required'),
         qualification: Yup.string().required('Qualification is required'),
         address: Yup.string().required('Address is required'),
         mobileNumber: Yup.string().required()
             .matches(/^[0-9]+$/, "Must be only digits")
             .min(10, 'Must be exactly 10 digits')
             .max(10, 'Must be exactly 10 digits'),
-        // attendence: Yup.string().required('attendence is required'),
-        // status: Yup.string().required('status  is required'),
     });
     useEffect(() => {
         getTeacherList();
-        getAddClassList();
         return () => {
             setTeacherIdList([]);
             setTeacherList([]);
-            setAddClassList([]);
-            // setClassNameList([]);
         }
     }, []);
     const handleOpen = () => {
         setOpen(true);
     };
-    const onclick = () => {
-        setOpen(true);
-    }
     const handleClose = () => {
         setOpen(false);
-    };
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
-    const onSubmit = data => {
-        console.log(JSON.stringify(data, null, 2));
     };
     const getTeacherList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
@@ -137,25 +80,7 @@ export default function Teacher() {
             // setError(err.message);
         });
     }
-    const getAddClassList = () => {
-        const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        AddClassService.getAllAddClass(userDetails.schoolId).then((res) => {
-            setAddClassList(res);
-        }).catch((err) => {
-            // setError(err.message);
-        });
-    }
-    // const getClassNameList = (event) => {
-    //     AddClassService.getAddClassNameById({ className: event.target.value }).then((res) => {
-    //         debugger
-    //         setClassNameList(res);
-
-    //     }).catch((err) => {
-    //         setError(err.message);
-    //     });
-    // }
     const editTeacher = (teacher) => {
-        // teacher.classId = teacher.classId ? teacher.classId._id :'';
         setTeacher(teacher);
         handleOpen();
     }
