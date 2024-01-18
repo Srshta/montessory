@@ -187,7 +187,6 @@ export default function VendorList() {
         const vendorDetails = tempOrderById.cart[index].vendorDetails.find(vendor => {
             return vendor._id === event.target.value;
         })
-        debugger
         tempOrderById.cart[index].selectedVendorId = vendorDetails._id;
         tempOrderById.cart[index].selectedVendor = {
             id: vendorDetails._id, orgName: vendorDetails.orgName,

@@ -60,7 +60,7 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError, r
       setError(null)
       setIsLoading(false)
       dispatch({ type: 'LOGIN_SUCCESS' })
-  debugger
+ 
       history.push('/app/calenderevents') ;
       window.location.reload(false);
 

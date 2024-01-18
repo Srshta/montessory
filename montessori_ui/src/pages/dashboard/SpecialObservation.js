@@ -190,7 +190,6 @@ export default function Teacher() {
             }
             else {
                 SpecialObservationService.creteSpecialobservation(values).then((res) => {
-                    debugger
                     getSpecialObservationList();
                     resetForm();
                     handleClose();

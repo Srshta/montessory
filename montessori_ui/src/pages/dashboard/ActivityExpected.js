@@ -360,7 +360,7 @@ setActivity(obj);
                         >
                             <Grid container spacing={2} columns={12} style={{ margin: 10 }}  >
                            
-                            <Grid item xs={2} >
+                            <Grid item xs={6} sm={6} md={2} >
                              <FormControl variant="standard" fullWidth>
                             <InputLabel id="studentName">Student Name</InputLabel>
                             <Select
@@ -383,7 +383,7 @@ setActivity(obj);
                             </Select>
                         </FormControl>
                                 </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={6} sm={6} md={2}>
                                     <form className={classes.container} noValidate>
                                     <TextField InputProps={{ style: { width: 150 } }}
                                             id="dob"
@@ -399,7 +399,7 @@ setActivity(obj);
                                         />
                                     </form>
                                 </Grid>
-                                <Grid item xs={2} >
+                                <Grid item xs={6} sm={6} md={2} >
                                 <TextField InputProps={{ style: { width: 120 } }}
                                             id="dob"
                                             name="dob"
@@ -413,7 +413,7 @@ setActivity(obj);
                                             }}
                                         />
                                 </Grid>
-                                <Grid item xs={2} >
+                                <Grid item xs={6} sm={6} md={2} >
                                 <Button style={{ backgroundColor: 'rgb(48 135 91)', color: 'white' }}
                                  type="button"
                                  
@@ -422,7 +422,7 @@ setActivity(obj);
                                     
                                      Search</Button>
                                 </Grid>
-                                <Grid item xs={2}   >
+                                <Grid item xs={6} sm={6} md={2}   >
                                     
                                     <ExportExcel   excelData={result} fileName={'Student Activity'} />
 

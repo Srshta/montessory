@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 export default function StudentForm(props, history) {
+    const { id } = useParams();
+    var [error, setError] = useState(null);
+    const [age, setAge] = React.useState('');
+    const [open, setOpen] = React.useState(false);
+    const [cityList, setCityList] = useState([]);
     const classes = useStyles();
     const [studentList, setStudentList] = useState([]);
     const [student, setStudent] = useState({
@@ -45,14 +50,30 @@ export default function StudentForm(props, history) {
     ];
     useEffect(() => {
         // getAddClassList();
-        // if (id !== 'add') {
-        //     getByIdList();
-        // }
+        if (id !== 'add') {
+            getByIdList();
+        }
         return () => {
             setStudentList([]);
         }
     }, []);
- 
+    const handleChange = (event) => {
+        setAge(event.target.value);
+    };
+    const handleOpen = () => {
+        props.history.push('/app/district/studentdetails')
+    };
+    const handleClose = () => {
+        setOpen(false);
+    };
+    const getByIdList = () => {
+        StudentService.getByIdStudent(id).then((res) => {
+
+            setStudent(res);
+        }).catch((err) => {
+            setError(err.message);
+        });
+    }
     const validationSchema = Yup.object().shape({
         firstName: Yup.string().required('student first name  is required'),
         lastName: Yup.string(),
@@ -69,6 +90,21 @@ export default function StudentForm(props, history) {
         doa: Yup.string().required('select date of admission'),
         allergies: Yup.string(),
     });
+    const getStudentList = () => {
+        StudentService.getAllStudent().then((res) => {
+            setStudentList(res);
+        }).catch((err) => {
+            // setError(err.message);
+        });
+    }
+    const deleteStudent = (studentdelete) => {
+        if (studentdelete) {
+            StudentService.deleteStudent(studentdelete).then((res) => {
+                getStudentList();
+            }).catch((err) => {
+            });
+        }
+    };
     const formik = useFormik({
         initialValues: student,
         enableReinitialize: true,
@@ -88,7 +124,6 @@ export default function StudentForm(props, history) {
             }
             else {
                 StudentService.creteStudent(values).then((res) => {
-                    debugger
                     alert(" Student Registration Successfully.");
                     props.history.push('/app/studentdetails');
                     // props.history.push('/app/vendor');

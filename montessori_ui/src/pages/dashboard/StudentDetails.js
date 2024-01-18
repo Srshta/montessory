@@ -37,6 +37,7 @@ export default function StudentDetails(props, history) {
     const [teacherList, setTeacherList] = useState([]);
     const [classNameList, setClassNameList] = useState([]);
     const [studentList, setStudentList] = useState([]);
+    
     const [age, setAge] = React.useState('');
     var [error, setError] = useState(null);
     const [teacherIdList, setTeacherIdList] = useState([]);
@@ -50,6 +51,7 @@ export default function StudentDetails(props, history) {
         email: '',
         subject: '',
         qualification: '',
+
         address: '',
         mobileNumber: '',
         attendence: '',
@@ -99,7 +101,6 @@ export default function StudentDetails(props, history) {
     // }
     const getUserPermitionsList=()=>{
         const userPermitions= ActivityService.userPermitions();
-        debugger
              setUserPermitionsList(userPermitions);
         }
         
@@ -111,11 +112,13 @@ export default function StudentDetails(props, history) {
             // setError(err.message);
         });
     }
+
+    
     const editStudent = (id) => {
         // teacher.classId = teacher.classId ? teacher.classId._id :'';
         props.history.push(`/app/studentregistration/${id}`);
-        // setStudent(student);
-        // handleOpen();
+        setStudent(student);
+       // handleOpen();
     }
     const deleteStudent= (studentdelete) => {
         if (studentdelete) {

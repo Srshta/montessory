@@ -40,28 +40,6 @@ const addAttendence = async (req, res) => {
     });
   }
 };
-//   const loginStudent = async (req, res) => {
-//     try {
-//       const student = await student.findOne({ mobileNumber: req.body.mobileNumber });
-//       if (student && bcrypt.compareSync(req.body.password, student.password)) {
-//         const token = signInToken(student);
-//         res.send({;
-//           _id: student._id,
-//           name: student.orgName,
-//           phone: student.mobileNumber,
-//           email:student.email,
-//         });
-//       } else {
-//         res.status(401).send({
-//           message: 'Invalid Email or password!',
-//         });
-//       }
-//     } catch (err) {
-//       res.status(500).send({
-//         message: err.message,
-//       });
-//     }
-//   };
 const addAllAttendence = async (req, res) => {
   try {
     await Attendence.insertMany(req.body);
@@ -77,7 +55,6 @@ const addAllAttendence = async (req, res) => {
 const getAllAttendence = async (req, res) => {
   try {
     const attendence = await Attendence.find({}).populate("schooleId")
-      // .populate("classId")
       .populate("teacherId");
     res.send(attendence);
   } catch (err) {
@@ -95,10 +72,12 @@ const getAllReports = async (req, res) => {
     if (req.body.studentId) {
       preparePost = { "studentId": ObjectId(req.body.studentId) };
     }
+    
     if (req.body.startDate1 && req.body.endDate1) {
       preparePost = { ...preparePost, ...{ "date": { $gte: new Date(req.body.startDate1).toISOString(), $lte: new Date(req.body.endDate1).toISOString() } } };
     }
     console.log(preparePost)
+    
     const attendence = await AttendenceReport.aggregate(
       [
         {

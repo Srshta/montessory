@@ -4,12 +4,13 @@ const router = express.Router();
 const {
     addSubActivity,addAllSubActivity,getAllSubActivity,getSubActivityById,
     updateSubActivity,deleteSubActivity,findSubActivityList,
-    addAllSubActivityByActivityId, uploadBulkRecords
+    addAllSubActivityByActivityId, uploadBulkRecords, getStudentReport
     // loginActivity,
 } = require('../controller/subActivityController');
 
 //add a coupon
 router.post('/add', addSubActivity);
+
 router.put('/:id',isAuth, updateSubActivity);
 //add multiple coupon
 router.post('/all',isAuth, addAllSubActivity);
@@ -20,7 +21,9 @@ router.post('/find',isAuth, findSubActivityList);
 //get all coupon
 router.get('/list/:schooleId',isAuth, getAllSubActivity);
 //get a coupon
+router.post('/studentreport', getStudentReport);
 router.get('/:id',isAuth, getSubActivityById);
+
 
 router.post('/data/upload', uploadBulkRecords);
 

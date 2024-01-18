@@ -6,6 +6,7 @@ import {
     TableBody,
     TableCell
 } from "@material-ui/core";
+import { saveAs } from 'file-saver';
 import {  Card, Box } from "@material-ui/core";
 import TablePagination from '@material-ui/core/TablePagination';
 import ActivityService from "./Locality/Service/activityService";
@@ -51,6 +52,7 @@ export default function StudentActivity() {
     const [activityList, setActivityList] = useState([]);
     const [studentList, setStudentList] = useState([]);
     const [subActivityList, setSubActivityList] = useState([]);
+    const [studentReportList, setStudentReportList] = useState([]);
     const [classNameList, setClassNameList] = useState([]);
     const [age, setAge] = React.useState('');
     var [error, setError] = useState(null);
@@ -63,6 +65,7 @@ export default function StudentActivity() {
     const [startDate1, setStartDate1] = useState('');
     const [endDate1, setEndDate1] = useState('');
     const [result, setResult]= useState([]);
+    const [studentReportResult, setStudentReportResult]= useState([]);
     var [studentId, setStudentId] = useState("");
     const today = new Date();
     const getWeekStartEnd = (date) => {
@@ -154,6 +157,7 @@ const week = getWeekStartEnd(date);
             setActivityList([]);
             setStudentList([]);
             setAddSuperActivityList([]);
+            setStudentReportList([]);
         }
     }, []);
     const getSuperActivityList = () => {
@@ -202,20 +206,47 @@ const week = getWeekStartEnd(date);
                 "Key":response.key,
                 "Date":response.date,
             }
-           
          })
          setResult(result);
     };
-
-
+         const getStudentReportList = () => {
+        const userDetails = JSON.parse(localStorage.getItem("userDetail"));
+        const newstartDate1 = startDate1 ? startDate1 :"";
+        const newendDate1 = endDate1 ? endDate1 :"";
+        if (studentId=='') {
+            alert("Please Select Student");
+            return;
+        }
+        const getstudentId = { "studentId": studentId,"startDate1":newstartDate1,"endDate1":newendDate1  };
+        debugger
+        SubActivityService.getStudentReport(getstudentId).then((res) => {
+           // const blob = new Blob(res.pdfBuffer);
+            const buffer = Buffer.from(res.pdfBuffer);
+            const blob = new Blob([buffer]);
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            document.body.appendChild(a);
+            a.style = "display: none";
+            a.href = url;
+            a.download = "studentreport.pdf";
+            a.click();
+            window.URL.revokeObjectURL(url);
+            // const blob = new Blob([res.pdfBuffer]);
+            // saveAs(blob, 'filename.pdf');
+            // const file = new File(res.pdfBuffer, 'filename.txt', { type: 'text/plain' });
+            // setStudentReportList(res);
+        }).catch((err) => {
+            alert(err.response.data.message)
+        });
+    }
     const onSubmit = data => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-
         const newstartDate1 = startDate1 ? startDate1 :"";
         const newendDate1 = endDate1 ? endDate1 :"";
         const keys = {  "schooleId": userDetails.schoolId,  "studentId": studentId, "startDate1":newstartDate1,"endDate1":newendDate1  }
         ActivityService.findActivityList(keys).then((res) => {
             excelExport(res);
+            //getStudentReportList(res);
             console.log(res)
             // setClassValue("");
             setActivityList(res);
@@ -250,7 +281,6 @@ const week = getWeekStartEnd(date);
             // setError(err.message);
         });
     }
-
     const getStudentList = (event, obj) => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         
@@ -272,13 +302,13 @@ const week = getWeekStartEnd(date);
     }
     const getStudentActivityList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-
         ActivityTabelService.getStudentActivity(userDetails.schoolId, false).then((res) => {
             setActivityList(res);
         }).catch((err) => {
             // setError(err.message);
         });
     }
+   
 
     const editActivity = (useractivitys, status) => {
         const obj = JSON.parse(JSON.stringify(useractivitys, status));
@@ -298,7 +328,6 @@ const week = getWeekStartEnd(date);
            delete obj._id;
         }
         setActivity(obj);
-
         handleOpen()
     }
 
@@ -311,6 +340,7 @@ const week = getWeekStartEnd(date);
             });
         }
     };
+    
     const formik = useFormik({
         initialValues: activity,
         enableReinitialize: true,
@@ -364,11 +394,9 @@ const week = getWeekStartEnd(date);
             <Card sx={{ maxWidth: 345 }}>
             <Box   >
             <div >
-            <form
-            // onSubmit={formik.handleSubmit} 
-                        >
-                             <Grid container spacing={2} columns={12} style={{ margin: 10 }}  >
-                             <Grid item xs={2} >
+            <form >   
+                             <Grid container spacing={2} columns={12} style={{ margin: 10, }}  >
+                             <Grid item xs={6} sm={6} md={2}  >
                              <FormControl variant="standard" fullWidth>
                             <InputLabel id="studentName">Student Name</InputLabel>
                             <Select
@@ -378,8 +406,7 @@ const week = getWeekStartEnd(date);
                                 name="studentId"
                                  value={studentId}
                                 onChange={e => {setStudentId(e.target.value) }}
-                                // error={formik.touched.studentId && Boolean(formik.errors.studentId)}
-                                // helperText={formik.touched.studentId && formik.errors.studentId}
+                               
                             >
                                 <MenuItem value="">
                                     <em>None</em>
@@ -391,9 +418,9 @@ const week = getWeekStartEnd(date);
                             </Select>
                         </FormControl>
                                 </Grid>
-                            <Grid item xs={3}>
+                            <Grid item xs={6} sm={6} md={2} >
                                     <form className={classes.container} noValidate>
-                                    <TextField InputProps={{ style: { width: 190 } }}
+                                    <TextField InputProps={{ style: { width: 140 } }}
                                             id="dob"
                                             name="dob"
                                             label="Start Date"
@@ -401,6 +428,7 @@ const week = getWeekStartEnd(date);
                                            min="2016-11-10"
                                             max="2022-11-10"   
                                             value={startDate1}
+                                            
                                             onChange={e => {getStudentList(e.target.value); setStartDate1(e.target.value) }}          
                                             className={classes.textField}
                                             InputLabelProps={{
@@ -409,7 +437,7 @@ const week = getWeekStartEnd(date);
                                         />
                                     </form>
                                 </Grid>
-                                <Grid item xs={2} >
+                                <Grid item xs={6} sm={6} md={2} >
                                 <TextField InputProps={{ style: { width: 140 } }}
                                             id="dob"
                                             name="dob"
@@ -425,19 +453,23 @@ const week = getWeekStartEnd(date);
                                             }}
                                         />
                                 </Grid>
-                                <Grid item xs={2} >
+                                <Grid item xs={6} sm={6} md={2}>
                                 <Button style={{ backgroundColor: 'rgb(48 135 91)', color: 'white' }}
                                  type="button"
                                  
                                   onClick={() => onSubmit()} variant="contained" 
                                  >
-                                    
                                      Search</Button>
                                 </Grid>
-                                <Grid item xs={2} >
-                                <ExportExcel  style={{fontSize:"11px"}} excelData={result} fileName={'Student Activity'} />
+                                <Grid item xs={6} sm={6} md={2} >
+                                <ExportExcel  style={{fontSize:"11px",}} excelData={result} fileName={'Student Activity'} />
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={2} >
+                                <Button  style={{ backgroundColor: 'rgb(48 135 91)', color: 'white',  fontSize: '13px' }} type="button" onClick={() => getStudentReportList()} >student report</Button>
                                 </Grid>
                             </Grid>
+                            
+                            
                             </form>
                 </div>
                 </Box>

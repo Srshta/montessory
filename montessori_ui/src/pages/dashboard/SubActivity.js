@@ -207,7 +207,6 @@ const iampig = event ? event._id :'';
     //     }
     const filterExcDetails = (event) => {
         const sub = event ? event.value :'';
-        debugger
         setExercise(sub);
         if (sub) {
             const filterValue = temSubActivitylList.filter(act => act._id === sub);
@@ -236,14 +235,14 @@ const iampig = event ? event._id :'';
                     color="secondary" style={{ backgroundColor: '#30875b' }}> Add Sub Activity
                 </Button>}
             />
-            <Grid container spacing={4}>
-                <Grid item xs={4}>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
                     <div >
                     <Autocomplete
       id="combo-box-demo"
       options={addActivityList}
       getOptionLabel={(option) => option.activityName}
-      style={{ width: 300 }}
+      
       onChange={(event, newValue) => {
         filterActivitys(newValue);
       }}
@@ -271,13 +270,13 @@ const iampig = event ? event._id :'';
                         </FormControl> */}
                     </div>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <div >
                     <Autocomplete
       id="combo-box-demo"
       options={filterExerciseList}
       getOptionLabel={(option) => option.name}
-      style={{ width: 300 }}
+      
       onChange={(event, newValue) => {
         filterExcDetails(newValue);
       }}

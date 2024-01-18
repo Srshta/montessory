@@ -123,19 +123,19 @@ function LoginLayout(props) {
                     />
                   </IconButton>
                 </Link>
-                <Link
+                {/* <Link
                   href={'https://twitter.com/flatlogic'}
                   target={'_blank'}
-                >
-                  <IconButton aria-label="twitter">
+                > */}
+                  {/* <IconButton aria-label="twitter">
                     <Icon
                       path={TwitterIcon}
                       size={1}
                       color="#6E6E6E99"
                     />
                   </IconButton>
-                </Link>
-                <Link
+                </Link> */}
+                {/* <Link
                   href={'https://github.com/flatlogic'}
                   target={'_blank'}
                 >
@@ -149,7 +149,7 @@ function LoginLayout(props) {
                       color="#6E6E6E99"
                     />
                   </IconButton>
-                </Link>
+                </Link> */}
               </div>
             </Box>
           </div>

@@ -8,11 +8,6 @@ const attendenceSchema = new mongoose.Schema(
             required: true,
         },
         studentList: [{}],
-        // classId: {
-        //     type: mongoose.Schema.Types.ObjectId,
-        //     ref: "Class",
-        //     required: true,
-        // },
         teacherId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Teacher",

@@ -12,8 +12,6 @@ import {
   useParams
 } from "react-router-dom";
 export default function VendorRegistration(props) {
-
-
   const [vendor, setVendor] = useState({
     orgName: '',
     fullName:'',

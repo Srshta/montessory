@@ -2,7 +2,8 @@ const express = require('express');
 const { isAuth, isAdmin } = require('../config/auth');
 const router = express.Router();
 const {
-    addRegistration,addAllRegistration,getAllRegistration,getRegistrationById,updateRegistration,deleteRegistrationr,findRegistrationList,loginRegistration
+    addRegistration,addAllRegistration,getAllRegistration,getRegistrationById,updateRegistration,deleteRegistrationr,findRegistrationList,
+    loginRegistration
 } = require('../controller/schooleRegistrationController');
 
 //add a coupon

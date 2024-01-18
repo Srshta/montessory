@@ -119,8 +119,20 @@ export default function Attendence() {
         setAge(event.target.value);
     };
     const ageChange = (attendence) => {
-
     };
+    function diffDate(dob, cdate) {
+        var daysDiff = Math.ceil((Math.abs(dob - cdate)) / (1000 * 60 * 60 * 24));
+        var years = Math.floor(daysDiff / 365.25);
+        var remainingDays = Math.floor(daysDiff - (years * 365.25));
+        var months = Math.floor((remainingDays / 365.25) * 12);
+        var days = Math.ceil(daysDiff - (years * 365.25 + (months / 12 * 365.25)));
+        return {
+          daysAll: daysDiff,
+          years: years,
+          months: months,
+          days: days
+        }
+      }
     const onSubmit = data => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         const keys = { "classId": classValue, "schooleId": userDetails.schoolId, "studentList": studentList, "teacherId": userDetails._id, "date": dateValue }
@@ -130,7 +142,6 @@ export default function Attendence() {
             setStudentList([]);
             alert(" Attendence Successfully.");
         }).catch((err) => {
-            debugger
             alert(err.response.data.message);
         });
     };
@@ -152,22 +163,24 @@ export default function Attendence() {
     }
     const getStudentList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-        StudentService.getAllStudentById(userDetails.schoolId, {  }).then((res) => {
+        StudentService.getAllStudentById(userDetails.schoolId, {  }).then((res) => { 
+
             const studentDetails = res.map(res => {
-                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true };
+                const monthAppend = diffDate(new Date(res.dob), new Date()).months.toString();
+                const monthCheck = monthAppend.length == 1 ? monthAppend.padStart(2, '0'):monthAppend;
+                const converNumber = Number(`${diffDate(new Date(res.dob), new Date()).years}.${monthCheck}`);
+                return { _id: res._id, studentName: `${res.firstName} ${res.lastName}`, status: true, age: converNumber
+            }
             })
-            setStudentList(studentDetails);
+            const result = studentDetails.sort((a, b) => a.age - b.age);
+            setStudentList(result);
         }).catch((err) => {
             // setError(err.message);
         });
     }
-
-
     const getClassNameList = (event) => {
         AddClassService.getAddClassNameById({ className: event.target.value }).then((res) => {
-
             setClassNameList(res);
-
         }).catch((err) => {
             setError(err.message);
         });
@@ -225,28 +238,7 @@ export default function Attendence() {
                                         />
                                     </form>
                                 </Grid>
-                                {/* <Grid item xs={6} >
-                                    <FormControl variant="standard" style={{ width: 270 }} >
-                                        <InputLabel id="demo-simple-select-standard-label" >Age</InputLabel>
-                                        <Select
-                                            labelId="demo-simple-select-standard-label"
-                                            id="className"
-                                            name="classId"
-                                            label="className"
-                                            value={classValue}
-                                            onChange={e => { setClassValue(e.target.value); getStudentList(e.target.value) }}
-                                        >
-                                            <MenuItem value="">
-                                                <em>None</em>
-                                            </MenuItem>
-                                            {addClassList.map(({ _id, className }) => (
-                                                <MenuItem key={_id} value={_id}>{className}
-                                                  
-                                                </MenuItem>
-                                            ))}
-                                        </Select>
-                                    </FormControl>
-                                </Grid> */}
+                               
                                 <span style={{ fontSize: "larger", marginTop: "20px" }}>Student Details:</span>
                                 {studentList.map((item, index) => (
                                     <Grid container rowSpacing={1} key={index} style={{ lineHeight: "2" }}>

@@ -8,7 +8,7 @@ import {
   TableCell
 } from "@material-ui/core";
 import Widget from "../../components/Widget/Widget";
- import TablePagination from '@material-ui/core/TablePagination';
+import TablePagination from '@material-ui/core/TablePagination';
 import PageTitle from "../../components/PageTitle/PageTitle";
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
@@ -47,7 +47,7 @@ function CreateEvents() {
   const [open, setOpen] = React.useState(false);
   const classes = useStyles();
   const [pg, setpg] = React.useState(0);
-    const [rpg, setrpg] = React.useState(5);
+  const [rpg, setrpg] = React.useState(5);
   const [events, setEvents] = useState({
     teacherId: '',
     dateTime: '',
@@ -55,14 +55,14 @@ function CreateEvents() {
   const validationSchema = Yup.object().shape({
     dateTime: Yup.string(),
   });
-  const handleChangePage=(event, newpage) =>{
+  const handleChangePage = (event, newpage) => {
     setpg(newpage);
-}
+  }
 
-const handleChangeRowsPerPage=(event)=> {
+  const handleChangeRowsPerPage = (event) => {
     setrpg(parseInt(event.target.value, 10));
     setpg(0);
-}
+  }
   useEffect(() => {
     getCalelnderEventsList();
 
@@ -157,14 +157,14 @@ const handleChangeRowsPerPage=(event)=> {
               </TableBody>
             </Table>
             <TablePagination
-                            component="div"
-                            rowsPerPageOptions={[5, 10, 25, 50, 100]}
-                            count={eventList.length}
-                            page={pg}
-                            onPageChange={handleChangePage}
-                            rowsPerPage={rpg}
-                            onRowsPerPageChange={handleChangeRowsPerPage}
-                        />
+              component="div"
+              rowsPerPageOptions={[5, 10, 25, 50, 100]}
+              count={eventList.length}
+              page={pg}
+              onPageChange={handleChangePage}
+              rowsPerPage={rpg}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
           </Widget>
         </Grid>
       </Grid>
@@ -188,21 +188,21 @@ const handleChangeRowsPerPage=(event)=> {
               helperText={formik.touched.eventName && formik.errors.eventName}
             />
             <form className={classes.container} noValidate>
-            <TextField InputProps={{ style: { width: 253 } }}
-                                            id="dateTime"
-                                            name="dateTime"
-                                            autoFocus
-                                            label="Select  Date"
-                                            type="datetime-local"
-                                            value={formik.values.dateTime}
-                                            onChange={formik.handleChange}
-                                            error={formik.touched.dateTime && Boolean(formik.errors.dateTime)}
-                                            helperText={formik.touched.dateTime && formik.errors.dateTime}
-                                            className={classes.textField}
-                                            InputLabelProps={{
-                                                shrink: true,
-                                            }}
-                                        />
+              <TextField InputProps={{ style: { width: 253 } }}
+                id="dateTime"
+                name="dateTime"
+                autoFocus
+                label="Select  Date"
+                type="datetime-local"
+                value={formik.values.dateTime}
+                onChange={formik.handleChange}
+                error={formik.touched.dateTime && Boolean(formik.errors.dateTime)}
+                helperText={formik.touched.dateTime && formik.errors.dateTime}
+                className={classes.textField}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+              />
               {/* <TextField InputProps={{ style: { width: 258 } }}
                 id="dateTime"
                 

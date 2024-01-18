@@ -3,6 +3,9 @@ const SubActivityService = {
   getAllSubActivity(id) {
     return requests.get(`/subactivity/list/${id}`);
   },
+  findActivityList(body){
+    return requests.post(`/activity/find`,body); 
+  },
   getAllSubActivityByActivityId(body) {
     return requests.post(`/subactivity/listbyactivityid`,body);
   },
@@ -15,7 +18,9 @@ const SubActivityService = {
   deleteSubActivity(body){
     return requests.delete(`/subactivity/${body._id}`); 
   },
-  
+  getStudentReport(body){
+    return requests.post(`/subactivity/studentreport`,body); 
+  },
  
 //   getAllCoupon() {
 //     return requests.get('/coupon');

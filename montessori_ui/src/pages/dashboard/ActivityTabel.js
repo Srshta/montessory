@@ -247,8 +247,8 @@ export default function Activity() {
                 size="medium"
                 color="secondary" style={{ backgroundColor: '#30875b' }}> Add Activity
             </Button>} />
-            <Grid container spacing={4}>
-                <Grid item xs={4}>
+            <Grid container spacing={2}>
+                <Grid item xs={6}>
                     <div >
                         <FormControl variant="filled" fullWidth="true" >
                             <InputLabel id="demo-simple-select-standard-label"> Area Of Work</InputLabel>
@@ -273,13 +273,13 @@ export default function Activity() {
                         </FormControl>
                     </div>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <div >
                     <Autocomplete
       id="combo-box-demo"
       options={tabelList}
       getOptionLabel={(option) => option.activityName}
-      style={{ width: 300 }}
+      
       onChange={(event, newValue) => {
         filterExcDetails(newValue);
       }}

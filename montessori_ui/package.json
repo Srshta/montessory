@@ -72,5 +72,9 @@
   "devDependencies": {
     "@babel/helper-call-delegate": "^7.11.4",
     "prettier": "^2.1.1"
+  },
+  "engines": {
+    "node": ">=10.24.1 <19.0.0"
   }
 }
+

@@ -158,7 +158,7 @@ export default function Sound() {
         // event.sounds.SPL
         event.sounds[item] = !event.sounds[item];
         // obj['a'] = true;
-        debugger
+
         StudentService.upadeStudent( event).then((res) => {
             getStudentList();
             
@@ -185,7 +185,7 @@ export default function Sound() {
             setStudentList([]);
             alert(" Attendence Successfully.");
         }).catch((err) => {
-            debugger
+
             alert(err.response.data.message);
         });
     };

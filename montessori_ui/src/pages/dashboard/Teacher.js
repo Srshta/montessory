@@ -74,7 +74,6 @@ export default function Teacher() {
     const getTeacherList = () => {
         const userDetails = JSON.parse(localStorage.getItem("userDetail"));
         TeacherService.getAllTeacher(userDetails.schoolId).then((res) => {
-            debugger
             setTeacherList(res);
         }).catch((err) => {
             // setError(err.message);
@@ -110,7 +109,6 @@ export default function Teacher() {
             }
             else {
                 TeacherService.creteTeacher(values).then((res) => {
-                    debugger
                     getTeacherList();
                     resetForm();
                     handleClose();

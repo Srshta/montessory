@@ -176,7 +176,6 @@ export default function MovableAlphabets() {
         // event.sounds.SPL
         event.movableAlphabets[item] = !event.movableAlphabets[item];
         // obj['a'] = true;
-        debugger
         StudentService.upadeStudent( event).then((res) => {
             getStudentList();
             
@@ -203,7 +202,6 @@ export default function MovableAlphabets() {
             setStudentList([]);
             alert(" Attendence Successfully.");
         }).catch((err) => {
-            debugger
             alert(err.response.data.message);
         });
     };

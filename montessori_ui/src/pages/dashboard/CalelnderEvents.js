@@ -66,7 +66,7 @@ const mapEventData = res.map(res=>{
 //   }
 // };
 const handleMouseEnter = (info) => {
-  debugger
+
   if (info.event._def && info.event._def.title) {
     setOpen(true)
     setTitle(info.event._def.title);

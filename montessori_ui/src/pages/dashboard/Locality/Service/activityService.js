@@ -47,7 +47,6 @@ getAllAddClass() {
 //   },
 userPermitions(){
   const userDetails = JSON.parse(localStorage.getItem("userDetail"));
-  debugger
 switch(userDetails.role){
 case 'SCHOOLE':
 return {studentDetailsEdit:true, studentDetailsDelete:true,

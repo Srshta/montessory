@@ -114,7 +114,7 @@ export default function SchooleRegistration(props) {
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       SchooleRegistrationService.creteSchooleRegistration(values).then((res) => {
-        debugger
+ 
         alert(" Registration Successfully.");
         props.history.push('/montessori/login');
       })
@@ -154,7 +154,7 @@ export default function SchooleRegistration(props) {
                 <Grid item xs={12} style={{ marginTop: '30px' }}>
                   <span style={{ fontSize: '17px', color: 'rgb(16 182 128)' }} >Address:</span>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
                   <TextField
                     InputProps={{ style: { width: 370 } }}
                     margin="dense"
@@ -174,7 +174,7 @@ export default function SchooleRegistration(props) {
 
 
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
                   <TextField
                     InputProps={{ style: { width: 370 } }}           
                     margin="dense"
@@ -190,7 +190,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.city && formik.errors.city}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
                   <TextField
                     InputProps={{ style: { width: 370 } }}
                     margin="dense"
@@ -206,9 +206,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.pincode && formik.errors.pincode}
                   />
                 </Grid>
-
-
-                <Grid item xs={6} >
+                <Grid item xs={12} sm={12} md={6} >
                   <div style={{ width: 370 }}>
                     <FormControl className={classes.formControl}
                       fullWidth="true" >
@@ -240,7 +238,7 @@ export default function SchooleRegistration(props) {
                 <Grid item xs={12} style={{ marginTop: '30px' }}>
                   <span style={{ fontSize: '17px', color: 'rgb(16 182 128)' }} >Contact Details:</span>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
 
                   <TextField
                     InputProps={{ style: { width: 370 } }}
@@ -257,7 +255,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.name && formik.errors.name}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
 
                   <TextField
                     InputProps={{ style: { width: 370 } }}
@@ -274,7 +272,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.email && formik.errors.email}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
                   <TextField
                     InputProps={{ style: { width: 370 } }}
                     
@@ -290,7 +288,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.mobileNumber && formik.errors.mobileNumber}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
 
                   <TextField
                     InputProps={{ style: { width: 370 } }}
@@ -307,7 +305,7 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.schooleEmail && formik.errors.schooleEmail}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
 
                   <TextField
                     InputProps={{ style: { width: 370 } }}
@@ -326,7 +324,7 @@ export default function SchooleRegistration(props) {
                   />
                 </Grid>
 
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
 
                   <TextField
                     id="password"
@@ -342,11 +340,14 @@ export default function SchooleRegistration(props) {
                     helperText={formik.touched.password && formik.errors.password}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} sm={12} md={6}>
                   <FormControl component="fieldset">
                     <FormLabel component="legend" >Avail trail subscription </FormLabel>
-                    <RadioGroup aria-label="subscription" name="subscription"  margin="dense"
-                    id="subscription  "  type="radio "
+                    <RadioGroup aria-label="subscription"
+                     name="subscription" 
+                      margin="dense"
+                    id="subscription" 
+                     type="radio"
                     variant="standard"
                     value={formik.values.subscription}
                     onChange={formik.handleChange}
