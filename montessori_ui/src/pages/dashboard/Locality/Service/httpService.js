@@ -2,7 +2,8 @@ import axios from 'axios';
 
 console.log(process.env.NEXT_PUBLIC_API_BASE_URL)
 // https://montessori.srshta.com/api
- const baseURL = 'https://montessori.srshta.com/api';
+//  const baseURL = 'https://montessori.srshta.com/api';
+ const baseURL = process.env.REACT_APP_APIURL;
  // const baseURL = `http://localhost:5057/api`;
 // const baseURL = 'http://localhost:5057/api';
 const instance = axios.create({
@@ -10,6 +11,8 @@ const instance = axios.create({
   timeout: 500000,
   headers: {
     Accept: 'application/json',
+
+
     'Content-Type': 'application/json',
   },
 });
